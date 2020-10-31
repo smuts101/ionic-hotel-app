@@ -1,0 +1,43 @@
+
+<ion-content  >
+  
+    <ion-grid style="height:20%;background-color:#91C622;padding:0%; "  >
+    <ion-row style="padding-top: 40px;;">
+      <ion-col size="12">
+        <h1 style="text-align: center;color:#fff;">Sign Up</h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <br>
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [(ngModel)]="email"  name="email"  type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Phone</ion-label>
+          <ion-input [(ngModel)]="phone"  name="phone" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input [(ngModel)]="password"  name="password" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <ion-button expand="block" style="--background:#196F3D;" expand="full" (click)="createUser()" >Full Button</ion-button>
+  <ion-button expand="block" style="--background:#196F3D;" expand="full" (click)="signOut()" >LogOut</ion-button>
+  </ion-content>
+  
