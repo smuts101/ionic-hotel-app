@@ -17,7 +17,7 @@ export class SignUpPage implements OnInit {
 
   ngOnInit() {}
 
-  newItem(){
+  hotelSignUp(){
     
    console.log(this.email+" "+this.password+" "+this.phone)
 
@@ -30,19 +30,14 @@ export class SignUpPage implements OnInit {
         console.error("Error writing document: ", error);
       });
    }
-
    async loginRegister(){
      this.hotelService.loginRegister(this.email,this.password);
    }
    async createUser(){
      this.hotelService.createUser(this.email,this.password);
   }
-
-
   async signOut(){
-
     this.hotelService.signOut();
-
   }
 
 

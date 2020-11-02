@@ -67,6 +67,18 @@ const routes: Routes = [
     path: 'sign-in',
     loadChildren: () => import('./sign-in/sign-in.module').then( m => m.SignInPageModule)
   },
+  {
+    path: 'hotel-signup',
+    loadChildren: () => import('./admin/hotel-signup/hotel-signup.module').then( m => m.HotelSignupPageModule)
+  },
+  {
+    path: 'hotel-sigin',
+    loadChildren: () => import('./admin/hotel-sigin/hotel-sigin.module').then( m => m.HotelSiginPageModule)
+  },
+  {
+    path: 'hotel-panel',
+    loadChildren: () => import('./admin/hotel-panel/hotel-panel.module').then( m => m.HotelPanelPageModule)
+  },
 ];
 
 @NgModule({
