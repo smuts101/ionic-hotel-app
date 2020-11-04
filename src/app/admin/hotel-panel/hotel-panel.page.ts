@@ -1,15 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { HotelService } from '../../hotel.service';
+require('firebase/firestore');
+require('firebase/auth');
+import * as firebase from 'firebase/app';
 @Component({
   selector: 'app-hotel-panel',
   templateUrl: './hotel-panel.page.html',
   styleUrls: ['./hotel-panel.page.scss'],
 })
 export class HotelPanelPage implements OnInit {
-
-  constructor() { }
+ 
+  constructor(private router:Router,public hotelService:HotelService) {  }
 
   ngOnInit() {
+     console.log(this.hotelService.getUserSession())
   }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

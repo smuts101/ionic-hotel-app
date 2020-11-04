@@ -29,20 +29,13 @@
     </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col >
-        <a href="gallaries">
-        <ion-button style="--background: #fff;border:3px solid #91C622;border-radius: 5px;" expand="full" fill="outline">Full Button</ion-button>
-      </a>
-    </ion-col>
+  
     <ion-col >
-      
-      <a href="choose-account">
-      <ion-button   style="--background: #fff;--background:#91C622;border-radius: 5px;" expand="full">Full Button</ion-button>
-      </a>
+      <ion-button [routerLink]="'/booking/'+item.company_email"  style="--background: #fff;--background:#91C622;border-radius: 5px;" expand="full">MAKE BOOKING</ion-button>
     </ion-col>
     </ion-row>
   </ion-grid>
-
+  
 </ion-content>
 
 

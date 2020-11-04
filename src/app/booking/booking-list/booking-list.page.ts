@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
-import { HotelService } from '../hotel.service';
+import { HotelService } from '../../hotel.service';
 require('firebase/firestore');
 require('firebase/auth');
-@Component({
-  selector: 'app-list-hotel',
-  templateUrl: './list-hotel.page.html',
-  styleUrls: ['./list-hotel.page.scss'],
-})
-export class ListHotelPage implements OnInit {
 
+@Component({
+  selector: 'app-booking-list',
+  templateUrl: './booking-list.page.html',
+  styleUrls: ['./booking-list.page.scss'],
+})
+export class BookingListPage implements OnInit {
   profiles:any=[]
   constructor() { }
 

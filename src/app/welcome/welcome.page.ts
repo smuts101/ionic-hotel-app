@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
+import { HotelService } from '../hotel.service';
 require('firebase/firestore');
 require('firebase/auth');
 @Component({
@@ -9,7 +11,9 @@ require('firebase/auth');
 })
 export class WelcomePage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,public hotelService:HotelService) { 
+   console.log(this.hotelService.getUserSession()) ;
+  }
 
   ngOnInit() {
   }

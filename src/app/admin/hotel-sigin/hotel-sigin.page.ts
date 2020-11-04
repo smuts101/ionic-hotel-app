@@ -10,22 +10,33 @@ require('firebase/auth');
   styleUrls: ['./hotel-sigin.page.scss'],
 })
 export class HotelSiginPage implements OnInit {
-  employee_no:any ="";
-  company_email:any ="";
-  hotel_password:any ="";
+  email:any = "";
+  password:any = "";
   constructor(private router:Router,public hotelService:HotelService) { }
 
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
-  hotelSignIn(){
-    console.log(this.hotel_password)
+  hotelSignUp(){
     
-    if(!this.hotelService.hotelSignIn(this.employee_no,this.company_email,this.hotel_password)){
-              console.log(false)
-    }else{
-      console.log(true)
-    }
+   console.log(this.email+" "+this.password)
+
+      firebase.firestore().collection('login')
+      .add(Object.assign({email:this.email},{password:this.password}))
+      .then((res) => {
+        console.log("Document successfully written!");
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+      });
+   }
+   async loginRegister(){
+     this.hotelService.loginRegister(this.email,this.password);
+   }
+   async createUser(){
+     this.hotelService.createUser(this.email,this.password);
+  }
+  async signOut(){
+    this.hotelService.signOut();
   }
 
 }

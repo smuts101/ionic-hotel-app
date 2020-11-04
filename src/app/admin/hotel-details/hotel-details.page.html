@@ -1,0 +1,82 @@
+
+<ion-content  >
+  <ion-grid style="height:20%;background-color:#91C622;padding:0%; "  >
+  <ion-row style="padding-top: 40px;;">
+    <ion-col size="12">
+      <h1 style="text-align: center;color:#fff;">Hotel SignIn {{this.show}} </h1>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<br>
+
+
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">company phone</ion-label>
+        <ion-input [(ngModel)]="company_tel"  name="email"  type="text"></ion-input>
+      </ion-item>
+    </ion-col>
+ 
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">Employee Id</ion-label>
+        <ion-input [(ngModel)]="employee_id"  name="employee_id"  type="text"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">Hotel Name</ion-label>
+        <ion-input [(ngModel)]="company_name"  name="company_name"  type="text"></ion-input>
+      </ion-item>
+    </ion-col>
+
+    <ion-col>
+      <ion-item>
+        <ion-label>Rating</ion-label>
+        <ion-select [(ngModel)]="rating"  name="rating"  >
+          <ion-select-option value="brown">1</ion-select-option>
+          <ion-select-option value="blonde">2</ion-select-option>
+          <ion-select-option value="black">3</ion-select-option>
+          <ion-select-option value="red">4</ion-select-option>
+          <ion-select-option value="red">5</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">address</ion-label>
+        <ion-textarea [(ngModel)]="address"  name="address"  type="text"></ion-textarea>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label position="floating">history</ion-label>
+        <ion-textarea [(ngModel)]="history"  name="history"  type="text"></ion-textarea>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <ion-label id="profile_image" color="primary" stacked>Profilbild wählen</ion-label>
+        <ion-input type="file" accept="image/*" id="upload" (change)="fileChangeEvent($event)"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-button expand="block" style="--background:#196F3D;" expand="full" *ngIf="this.show==0" (click)=" hotelAccounts()" >Full Button</ion-button>
+<a href="hotel-signup" >Create Account!</a>
+<a (click)="printAll()">printAll!</a>
+
+</ion-content>
+

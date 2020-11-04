@@ -10,17 +10,19 @@ require('firebase/auth');
   styleUrls: ['./hotel-signup.page.scss'],
 })
 export class HotelSignupPage implements OnInit {
-  employee_no:any ="";
-  company_email:any ="";
-  company_phone:any ="";
-  hotel_password:any ="";
+  email:any = "";
+  password:any = "";
   constructor(private router:Router,public hotelService:HotelService) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+
+ 
+   async createUser(){
+     this.hotelService.createUser(this.email,this.password);
   }
-  hotelSignUp(){
-    this.hotelService.hotelSignUp(this.employee_no,this.company_email,this.company_phone,this.hotel_password)
+  async signOut(){
+    this.hotelService.signOut();
   }
-  
 
 }

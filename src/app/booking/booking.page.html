@@ -1,6 +1,4 @@
-
 <ion-content  >
-  <a href="payment">
   <ion-grid style="height:20%;background-color:#91C622;padding:0%; "  >
   <ion-row style="padding-top: 40px;;">
     <ion-col size="12">
@@ -15,10 +13,7 @@
     <ion-col>
       <ion-item>
         <ion-label>Check in</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
-        </ion-select>
+        <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="checkin"></ion-datetime>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -26,10 +21,7 @@
     <ion-col>
       <ion-item>
         <ion-label>Check out</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
-        </ion-select>
+        <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="checkout"></ion-datetime>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -37,9 +29,17 @@
     <ion-col>
       <ion-item>
         <ion-label>Adult</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
+        <ion-select [(ngModel)]="adults" placeholder="Select One">
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="5">5</ion-select-option>
+          <ion-select-option value="6">6</ion-select-option>
+          <ion-select-option value="7">7</ion-select-option>
+          <ion-select-option value="8">8</ion-select-option>
+          <ion-select-option value="9">9</ion-select-option>
+        <ion-select-option value="10">10</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>
@@ -48,24 +48,45 @@
     <ion-col>
       <ion-item>
         <ion-label>Kids</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
+        <ion-select [(ngModel)]="kids" placeholder="Select One">
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="5">5</ion-select-option>
+          <ion-select-option value="6">6</ion-select-option>
+          <ion-select-option value="7">7</ion-select-option>
+          <ion-select-option value="8">8</ion-select-option>
+          <ion-select-option value="9">9</ion-select-option>
+        <ion-select-option value="10">10</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>
-  </ion-row>
+  </ion-row> 
   <ion-row>
     <ion-col>
       <ion-item>
         <ion-label>Rooms</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
+        <ion-select [(ngModel)]="rooms" placeholder="Select One">
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="5">5</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>
   </ion-row>
+
+
+
+  <ion-row>
+    <ion-col>
+    <ion-item>
+   <ion-button expand="block" style="--background:#196F3D;" (click)="bookingDetails()" expand="full" >Full Button</ion-button>
+  </ion-item>
+ </ion-col>
+</ion-row>
+
 </ion-grid>
-</a>
 </ion-content>

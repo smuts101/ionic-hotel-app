@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as firebase from 'firebase';
-import { HotelService } from '../hotel.service';
+import { HotelService } from '../../hotel.service';
 require('firebase/firestore');
 require('firebase/auth'); 
 
+
 @Component({
-  selector: 'app-hotel-profile',
-  templateUrl: './hotel-profile.page.html',
-  styleUrls: ['./hotel-profile.page.scss'],
+  selector: 'app-booking-profile',
+  templateUrl: './booking-profile.page.html',
+  styleUrls: ['./booking-profile.page.scss'],
 })
-export class HotelProfilePage implements OnInit {
+export class BookingProfilePage implements OnInit {
+
   profiles:any=[];
   email = this.route.snapshot.params.email;
   constructor(private route:ActivatedRoute) { 

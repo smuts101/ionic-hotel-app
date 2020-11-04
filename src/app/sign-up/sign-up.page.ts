@@ -12,17 +12,16 @@ require('firebase/auth');
 export class SignUpPage implements OnInit {
   email:any = "";
   password:any = "";
-  phone:any="";
   constructor(private router:Router,public hotelService:HotelService) { }
 
   ngOnInit() {}
 
   hotelSignUp(){
     
-   console.log(this.email+" "+this.password+" "+this.phone)
+   console.log(this.email+" "+this.password)
 
       firebase.firestore().collection('login')
-      .add(Object.assign({email:this.email},{phone:this.phone},{password:this.password}))
+      .add(Object.assign({email:this.email},{password:this.password}))
       .then((res) => {
         console.log("Document successfully written!");
       })

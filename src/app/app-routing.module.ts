@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { from } from 'rxjs';
 
 const routes: Routes = [
   {
@@ -12,7 +13,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'booking',
+    path: 'booking/:email',
     loadChildren: () => import('./booking/booking.module').then( m => m.BookingPageModule)
   },
   {
@@ -79,6 +80,24 @@ const routes: Routes = [
     path: 'hotel-panel',
     loadChildren: () => import('./admin/hotel-panel/hotel-panel.module').then( m => m.HotelPanelPageModule)
   },
+  {
+    path: 'hotel-details',
+    loadChildren: () => import('./admin/hotel-details/hotel-details.module').then( m => m.HotelDetailsPageModule)
+  },
+  {
+    path: 'hotel-profile/:email',
+    loadChildren: () => import('./hotel-profile/hotel-profile.module').then( m => m.HotelProfilePageModule)  }
+  ,
+  {
+    path: 'booking-list',
+    loadChildren: () => import('./booking/booking-list/booking-list.module').then( m => m.BookingListPageModule)
+  },
+  {
+    path: 'booking-profile/:email',
+    loadChildren: () => import('./booking/booking-profile/booking-profile.module').then( m => m.BookingProfilePageModule)
+  }
+
+
 ];
 
 @NgModule({
