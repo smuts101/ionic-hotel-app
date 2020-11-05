@@ -16,8 +16,6 @@
         <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="checkin"></ion-datetime>
       </ion-item>
     </ion-col>
-  </ion-row>
-  <ion-row>
     <ion-col>
       <ion-item>
         <ion-label>Check out</ion-label>
@@ -29,7 +27,7 @@
     <ion-col>
       <ion-item>
         <ion-label>Adult</ion-label>
-        <ion-select [(ngModel)]="adults" placeholder="Select One">
+        <ion-select [(ngModel)]="adults" placeholder="">
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
           <ion-select-option value="3">3</ion-select-option>
@@ -43,12 +41,10 @@
         </ion-select>
       </ion-item>
     </ion-col>
-  </ion-row>
-  <ion-row>
     <ion-col>
       <ion-item>
         <ion-label>Kids</ion-label>
-        <ion-select [(ngModel)]="kids" placeholder="Select One">
+        <ion-select [(ngModel)]="kids" placeholder="">
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
           <ion-select-option value="3">3</ion-select-option>
@@ -67,7 +63,7 @@
     <ion-col>
       <ion-item>
         <ion-label>Rooms</ion-label>
-        <ion-select [(ngModel)]="rooms" placeholder="Select One">
+        <ion-select [(ngModel)]="rooms" placeholder="">
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
           <ion-select-option value="3">3</ion-select-option>
@@ -77,7 +73,52 @@
       </ion-item>
     </ion-col>
   </ion-row>
-
+  <h1 style="text-align: center;">Payment</h1>
+ 
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Bank Name</ion-label>
+          <ion-select [(ngModel)]="bankName" placeholder="Bank Name">
+            <ion-select-option value="fnb">FNB</ion-select-option>
+            <ion-select-option value="nedbank">Nedbank</ion-select-option>
+            <ion-select-option value="absa">Absa</ion-select-option>
+            <ion-select-option value="capitec">Capitec</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">Card Number</ion-label>
+          <ion-input [(ngModel)]="cardno" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-select [(ngModel)]="month" type="text" placeholder="Month">
+          <ion-select-option value="january">January</ion-select-option>
+          <ion-select-option value="february">February</ion-select-option>
+        </ion-select>
+      </ion-col>
+      <ion-col>
+        <ion-select [(ngModel)]="year" placeholder="Year">
+          <ion-select-option value="2020">2020</ion-select-option>
+          <ion-select-option value="2021">2021</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label position="floating">VCC</ion-label>
+          <ion-input [(ngModel)]="vcc" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  
 
 
   <ion-row>

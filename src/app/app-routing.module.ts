@@ -13,7 +13,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'booking/:email',
+    path: 'booking/:hotelid',
     loadChildren: () => import('./booking/booking.module').then( m => m.BookingPageModule)
   },
   {
@@ -46,6 +46,10 @@ const routes: Routes = [
   },
   {
     path: 'payment',
+    loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  },
+  {
+    path: 'payment/:email',
     loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
   },
   {
@@ -85,7 +89,7 @@ const routes: Routes = [
     loadChildren: () => import('./admin/hotel-details/hotel-details.module').then( m => m.HotelDetailsPageModule)
   },
   {
-    path: 'hotel-profile/:email',
+    path: 'hotel-profile/:hotelid',
     loadChildren: () => import('./hotel-profile/hotel-profile.module').then( m => m.HotelProfilePageModule)  }
   ,
   {
@@ -93,8 +97,16 @@ const routes: Routes = [
     loadChildren: () => import('./booking/booking-list/booking-list.module').then( m => m.BookingListPageModule)
   },
   {
-    path: 'booking-profile/:email',
+    path: 'booking-profile/:hotelid',
     loadChildren: () => import('./booking/booking-profile/booking-profile.module').then( m => m.BookingProfilePageModule)
+  },
+  {
+    path: 'view-bookings',
+    loadChildren: () => import('./admin/view-bookings/view-bookings.module').then( m => m.ViewBookingsPageModule)
+  },
+  {
+    path: 'image-gallary',
+    loadChildren: () => import('./image-gallary/image-gallary.module').then( m => m.ImageGallaryPageModule)
   }
 
 

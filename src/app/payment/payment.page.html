@@ -1,6 +1,5 @@
 
 <ion-content  >
-<a href="feedback">
   <ion-grid style="height:20%;background-color:#91C622;padding:0%; "  >
   <ion-row style="padding-top: 40px;;">
     <ion-col size="12">
@@ -15,9 +14,11 @@
     <ion-col>
       <ion-item>
         <ion-label>Bank Name</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
+        <ion-select [(ngModel)]="bankName" placeholder="Bank Name">
+          <ion-select-option value="fnb">FNB</ion-select-option>
+          <ion-select-option value="nedbank">Nedbank</ion-select-option>
+          <ion-select-option value="absa">Absa</ion-select-option>
+          <ion-select-option value="capitec">Capitec</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>
@@ -25,37 +26,39 @@
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-label position="floating">Floating Label</ion-label>
-        <ion-input></ion-input>
+        <ion-label position="floating">Card Number</ion-label>
+        <ion-input [(ngModel)]="cardno" type="text"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
-      <ion-select placeholder="Select One">
-        <ion-select-option value="f">Female</ion-select-option>
-        <ion-select-option value="m">Male</ion-select-option>
+      <ion-select [(ngModel)]="month" type="text" placeholder="Month">
+        <ion-select-option value="january">January</ion-select-option>
+        <ion-select-option value="february">February</ion-select-option>
       </ion-select>
     </ion-col>
-
     <ion-col>
-      <ion-select placeholder="Select One">
-        <ion-select-option value="f">Female</ion-select-option>
-        <ion-select-option value="m">Male</ion-select-option>
+      <ion-select [(ngModel)]="year" placeholder="Year">
+        <ion-select-option value="2020">2020</ion-select-option>
+        <ion-select-option value="2021">2021</ion-select-option>
       </ion-select>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-label>VCC</ion-label>
-        <ion-select placeholder="Select One">
-          <ion-select-option value="f">Female</ion-select-option>
-          <ion-select-option value="m">Male</ion-select-option>
-        </ion-select>
+        <ion-label position="floating">VCC</ion-label>
+        <ion-input [(ngModel)]="vcc" type="text"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item> 
+        <ion-button expand="block" style="--background:#196F3D;" (click)="payment()"  expand="full" >Full Button</ion-button>
       </ion-item>
     </ion-col>
   </ion-row>
 </ion-grid>
-</a>
 </ion-content>

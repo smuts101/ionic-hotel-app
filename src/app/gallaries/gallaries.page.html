@@ -1,14 +1,31 @@
 
 <ion-content  >
-  <ion-grid style="height:20%;background-color:#91C622;padding:0%; "  >
-  <ion-row style="padding-top: 40px;;">
-    <ion-col size="12">
-      <ion-searchbar style="--border-radius: 50px;--background:#B2D960;height: 100%;" aria-placeholder="Search Hotel"></ion-searchbar>
-    </ion-col>
+  <ion-grid style="height:15%;background-color:#91C622;padding:0%; "  >
+  <ion-row style="padding-top: 40px;color:white;text-align: center;">
+    <h3>Upload Images</h3>
   </ion-row>
 </ion-grid>
 <br>
-<h1>Gallaries</h1>
+
+
+
+
+<ion-row>
+  <ion-col>
+    <ion-item>
+      <ion-label id="profile_image" color="primary" stacked>Profilbild wählen</ion-label>
+      <ion-input type="file" accept="image/*" id="upload" (change)="fileChangeEvent($event)"></ion-input>
+    </ion-item>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col>
+    <ion-button expand="block" style="--background:#196F3D;" expand="full"  (click)=" gallaryUpload()" >Upload</ion-button>
+  </ion-col>
+  <ion-col>
+    <ion-button expand="block" style="--background:#196F3D;" expand="full" [routerLink]="'/image-gallary'"   >View Images</ion-button>
+  </ion-col>
+</ion-row>
 
 
 

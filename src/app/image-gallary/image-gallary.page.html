@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>image-gallary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+ 
+  
+  <ion-grid>
+    <ion-row>
+      <div *ngFor="let x of list" class="gallery">
+        <a target="_blank" href="img_5terre.jpg">
+          <ion-img [src]="x.profile_url" alt="Cinque Terre" width="600" height="400"></ion-img>
+        </a>
+        </div>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

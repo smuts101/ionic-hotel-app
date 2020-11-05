@@ -33,13 +33,18 @@ export class HotelDetailsPage implements OnInit {
 
 
   constructor(private router:Router,public hotelService:HotelService) { 
+
+    console.log("----------------->"+this.hotelService.getHotelUserUid() );
+
+    console.log("----------------->"+this.hotelService.getHotelUserEmail() );
+
     var db=firebase.firestore();
-    db.collection('hotelsAccount').where("company_email",'==',this.hotelService.getUserSession() ).get().then(res=>{
+    db.collection('hotelsAccount').where("company_email",'==',this.hotelService.getHotelUserEmail() ).get().then(res=>{
       console.log(res.size)
       this.show = res.size
       if(res.size >= 0){
         console.log("Create account")
-        this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.hotelService.getUserSession())
+        this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.hotelService.getHotelUserUid())
       }else{
         console.log("already an active user")
       }
@@ -59,7 +64,7 @@ export class HotelDetailsPage implements OnInit {
       this.show = res.size
       if(res.size >= 0){
         console.log("Create account")
-        this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.hotelService.getUserSession(),this.cardImageBase64)
+        this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.hotelService.getHotelUserUid(),this.cardImageBase64)
       }else{
         console.log("already an active user")
       }
@@ -75,10 +80,10 @@ export class HotelDetailsPage implements OnInit {
   }
 
 
-  hotelProfile(company_tel,employee_id,company_name,rating,address,history,email){
-    firebase.firestore().collection('hotelsAccount').doc()
+  hotelProfile(company_tel,employee_id,company_name,rating,address,history,owner_uid){
+    firebase.firestore().collection('hotelsAccount').doc(this.hotelService.getHotelUserUid())
     .set(Object.assign({company_tel:company_tel},{employee_id:employee_id},{company_name:company_name},
-     {rating:rating},{address:address},{history:history},{company_email:email},{profile_url:this.cardImageBase64}))
+     {rating:rating},{address:address},{history:history},{owner_uid:owner_uid},{profile_url:this.cardImageBase64}))
     .then((res) => {
       console.log("Document successfully written!");
     })

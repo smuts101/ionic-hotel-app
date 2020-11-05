@@ -1,0 +1,12 @@
+<ion-content>
+  <ion-row *ngFor="let x of list">
+    <ion-card style="width:100%;">
+      <span><b>Email:</b> {{x.user_email}}</span><br>   
+       <span><b>Check In:</b>  {{x.checkin}}</span><br>
+       <span><b>Check Out:</b> {{x.checkout}}</span><br>
+       <span><b>Adults:</b> {{x.adults}}</span><br>
+       <span><b>Kids:</b> {{x.kids}}</span><br>
+       <span><b>Rooms:</b> {{x.rooms}}</span><br>
+   </ion-card>
+  </ion-row>
+</ion-content>

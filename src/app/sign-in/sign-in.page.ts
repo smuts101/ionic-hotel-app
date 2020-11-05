@@ -18,6 +18,6 @@ export class SignInPage implements OnInit {
   ngOnInit() {
   }
   async loginRegister(){
-    this.hotelService.loginRegisterUser(this.email,this.password);
+    this.hotelService.loginRegisterUser(this.email,this.password); 
   }
 }

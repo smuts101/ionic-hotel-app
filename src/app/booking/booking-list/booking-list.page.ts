@@ -17,7 +17,7 @@ export class BookingListPage implements OnInit {
   ngOnInit() { 
     firebase.firestore().collection('hotelsAccount').onSnapshot(res => {
       res.forEach(element => {
-        this.profiles.push(element.data());
+        this.profiles.push(Object.assign(element.data(),{hotel_id:element.id}));
         console.log(this.profiles)
       });
       console.log('Successful!!!');
