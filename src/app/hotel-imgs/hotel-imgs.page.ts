@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import * as firebase from 'firebase';
-import { HotelService } from 'src/app/hotel.service';
+import { HotelService } from '../hotel.service';
+
 @Component({
-  selector: 'app-image-gallary',
-  templateUrl: './image-gallary.page.html',
-  styleUrls: ['./image-gallary.page.scss'],
+  selector: 'app-hotel-imgs',
+  templateUrl: './hotel-imgs.page.html',
+  styleUrls: ['./hotel-imgs.page.scss'],
 })
-export class ImageGallaryPage implements OnInit {
-  list:any=[]
+export class HotelImgsPage implements OnInit {
+
+  list:any=[];
+  hotelid = this.route.snapshot.params.hotelid;
    
 
   constructor(private route:ActivatedRoute,public hotelService:HotelService) { 
-    console.log(  this.hotelService.getHotelUserUid())
-    firebase.firestore().collection("hotelsAccount").doc(this.hotelService.getHotelUserUid()).collection("gallaries")
-    .where("hotel_uid", "==", this.hotelService.getHotelUserUid())
+   console.log(this.hotelid)
+  
+    firebase.firestore().collection("hotelsAccount").doc(this.hotelid).collection("gallaries")
+    .where("hotel_uid", "==", this.hotelid)
     .get()
     .then((querySnapshot) => {
       //this.router.navigateByUrl('hotel-panel');
@@ -42,30 +46,3 @@ async signOut(){
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -36,5 +36,8 @@ export class BookingPage implements OnInit {
 
   ngOnInit() {
   }
+  async signOut(){
+    this.hotelService.signOut();
+  }
 
 }

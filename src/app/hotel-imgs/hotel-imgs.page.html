@@ -6,11 +6,8 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-icon name="arrow-back-outline"  [routerLink]="'/gallaries'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
+        <ion-icon name="arrow-back-outline"  [routerLink]="'/list-hotel'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
       </ion-col>
-    <ion-col>
-      <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
-    </ion-col>
     </ion-row>
   </ion-grid>
 </ion-item-divider>
@@ -22,7 +19,7 @@
   <ion-grid>
     <ion-row>
       <div *ngFor="let x of list" class="gallery">
-        <a target="_blank" (click)="removeItem(x.img_uid)">
+        <a target="_blank">
           <ion-img [src]="x.profile_url" alt="Cinque Terre" width="600" height="400"></ion-img>
         </a>
         </div>

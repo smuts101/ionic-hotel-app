@@ -38,5 +38,7 @@ list:any=[]
 
   ngOnInit() {
   }
-
+  async signOut(){
+    this.hotelService.signOut();
+  }
 }

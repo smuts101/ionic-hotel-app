@@ -107,6 +107,10 @@ const routes: Routes = [
   {
     path: 'image-gallary',
     loadChildren: () => import('./image-gallary/image-gallary.module').then( m => m.ImageGallaryPageModule)
+  },
+  {
+    path: 'hotel-imgs/:hotelid',
+    loadChildren: () => import('./hotel-imgs/hotel-imgs.module').then( m => m.HotelImgsPageModule)
   }
 
 

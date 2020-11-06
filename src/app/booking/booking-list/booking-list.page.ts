@@ -12,7 +12,7 @@ require('firebase/auth');
 })
 export class BookingListPage implements OnInit {
   profiles:any=[]
-  constructor() { }
+  constructor(private router:Router,public hotelService:HotelService) { }
 
   ngOnInit() { 
     firebase.firestore().collection('hotelsAccount').onSnapshot(res => {
@@ -23,5 +23,7 @@ export class BookingListPage implements OnInit {
       console.log('Successful!!!');
     });
   }
-
+  async signOut(){
+    this.hotelService.signOut();
+  }
 }

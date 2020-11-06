@@ -12,13 +12,13 @@ require('firebase/auth');
 })
 export class HotelProfilePage implements OnInit {
   profiles:any=[];
-  email = this.route.snapshot.params.email;
+  email = this.route.snapshot.params.hotelid;
   constructor(private route:ActivatedRoute) { 
     console.log(this.email)
   }
 
   ngOnInit() { 
-    firebase.firestore().collection('hotelsAccount').where("company_email",'==',this.email).onSnapshot(res => {
+    firebase.firestore().collection('hotelsAccount').where("owner_uid",'==',this.email).onSnapshot(res => {
       res.forEach(element => {
         this.profiles.push(element.data());
         console.log(this.profiles)

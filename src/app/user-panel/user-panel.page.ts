@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HotelService } from '../hotel.service';
 
 @Component({
   selector: 'app-user-panel',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserPanelPage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,public hotelService:HotelService) { }
 
   ngOnInit() {
+  }
+  async signOut(){
+    this.hotelService.signOut();
   }
 
 }

@@ -98,7 +98,7 @@ export class HotelDetailsPage implements OnInit {
   CreateProfile(){}
 
 printAll(){}
-
+ 
 
 fileChangeEvent(fileInput: any) {
   this. imageError = null;
@@ -145,7 +145,9 @@ fileChangeEvent(fileInput: any) {
 
 
 
-
+async signOut(){
+  this.hotelService.signOut();
+}
 
 
 }

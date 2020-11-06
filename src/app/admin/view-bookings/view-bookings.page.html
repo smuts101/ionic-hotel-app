@@ -1,3 +1,15 @@
+<ion-item-divider>
+  <ion-grid> 
+    <ion-row>
+      <ion-col>
+        <ion-icon name="arrow-back-outline"  [routerLink]="'/hotel-panel'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
+      </ion-col>
+    <ion-col>
+      <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item-divider>
 <ion-content>
   <ion-row *ngFor="let x of list">
     <ion-card style="width:100%;">

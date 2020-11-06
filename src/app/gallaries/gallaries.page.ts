@@ -77,7 +77,9 @@ export class GallariesPage implements OnInit {
         reader.readAsDataURL(fileInput.target.files[0])
     }
   }
-  
+  async signOut(){
+    this.hotelService.signOut();
+  }  
 
 
 

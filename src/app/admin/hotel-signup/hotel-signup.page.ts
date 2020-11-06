@@ -21,8 +21,6 @@ export class HotelSignupPage implements OnInit {
    async createUser(){
      this.hotelService.createUser(this.email,this.password);
   }
-  async signOut(){
-    this.hotelService.signOut();
-  }
+
 
 }

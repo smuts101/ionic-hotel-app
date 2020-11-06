@@ -3,8 +3,19 @@
   <ion-grid style="height:20%;background-color:#91C622;padding:0%; "  >
   <ion-row style="padding-top: 40px;;">
     <ion-col size="12">
-      <h1 style="text-align: center;color:#fff;">Hotel SignIn {{this.show}} </h1>
+      <h1 style="text-align: center;color:#fff;">Create Profile Hotel</h1>
     </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-grid>
+  <ion-row> 
+    <ion-col>
+      <ion-icon name="arrow-back-outline"  [routerLink]="'/hotel-panel'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
+    </ion-col>
+ 
+  <ion-col>
+    <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
+  </ion-col>
   </ion-row>
 </ion-grid>
 <br>
@@ -64,7 +75,7 @@
         <ion-textarea [(ngModel)]="history"  name="history"  type="text"></ion-textarea>
       </ion-item>
     </ion-col>
-  </ion-row>
+  </ion-row> 
   <ion-row>
     <ion-col>
       <ion-item>

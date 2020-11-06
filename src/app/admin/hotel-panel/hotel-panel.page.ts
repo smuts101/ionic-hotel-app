@@ -17,7 +17,9 @@ export class HotelPanelPage implements OnInit {
      console.log(this.hotelService.getUserSession())
   }
 
-
+  async signOut(){
+    this.hotelService.signOut();
+  }
 
 
 

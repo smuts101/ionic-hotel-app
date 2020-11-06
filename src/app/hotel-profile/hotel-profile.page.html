@@ -9,6 +9,14 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="arrow-back-outline"  [routerLink]="'/list-hotel'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
   <ion-grid  *ngFor="let item of profiles" >
     <ion-row >
@@ -30,15 +38,15 @@
     </ion-row>
     <ion-row>
       <ion-col >
-        <a href="gallaries">
-        <ion-button style="--background: #fff;border:3px solid #91C622;border-radius: 5px;" expand="full" fill="outline">Full Button</ion-button>
-      </a>
+        
+        <ion-button [routerLink]="'/hotel-imgs/'+item.owner_uid" style="--background: #fff;border:3px solid #91C622;border-radius: 5px;" expand="full" fill="outline">Gallary</ion-button>
+      
     </ion-col>
     <ion-col >
       
-      <a href="choose-account">
-      <ion-button   style="--background: #fff;--background:#91C622;border-radius: 5px;" expand="full">Full Button</ion-button>
-      </a>
+    
+      <ion-button [routerLink]="'/choose-account'"  style="--background: #fff;--background:#91C622;border-radius: 5px;" expand="full">Book Now!</ion-button>
+    
     </ion-col>
     </ion-row>
   </ion-grid>

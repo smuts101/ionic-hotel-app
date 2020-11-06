@@ -16,7 +16,7 @@ export class BookingProfilePage implements OnInit {
   profiles:any=[];
   
   hotelid = this.route.snapshot.params.hotelid;
-  constructor(private route:ActivatedRoute) { 
+  constructor(private route:ActivatedRoute,private router:Router,public hotelService:HotelService) { 
     console.log(this.hotelid)
   }
 
@@ -49,5 +49,7 @@ export class BookingProfilePage implements OnInit {
       console.log('Successful!!!');
     });*/
   }
-
+  async signOut(){
+    this.hotelService.signOut();
+  }
 }
