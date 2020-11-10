@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HotelService } from '../hotel.service';
-
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.page.html',
@@ -23,15 +22,28 @@ export class BookingPage implements OnInit {
   vcc:any;
   
   constructor(private route:ActivatedRoute,public hotelService:HotelService) { }
-
+  
 
   bookingDetails(){
+   
+   
+    
+      
+    console.log(this.hotelService.getDates()
+    )    
+  
+    console.log(    this.hotelService.getTimes(),  
+
+    )    
+
+    
     console.log(this.hotelService.getUserSession());
+    console.log(this.hotelService.getUserSessionUid());
     this.hotelService.booking(this.checkin,this.checkout,this.kids,this.adults,
-                              this.rooms,this.hotelid,this.hotelService.getUserSession()
-                              ,this.bankName,this.cardno,this.month,this.year,this.vcc
+                              this.rooms,this.hotelid,this.hotelService.getUserSession(),this.hotelService.getUserSessionUid()
+                              ,this.bankName,this.cardno,this.month,this.year,this.vcc, this.hotelService.getTimes(),  this.hotelService.getDates()
                               );
-  }
+   }
 
 
   ngOnInit() {

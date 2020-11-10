@@ -22,10 +22,10 @@
   <ion-grid>
     <ion-row>
       <div *ngFor="let x of list" class="gallery">
-        <a target="_blank" (click)="removeItem(x.img_uid)">
-          <ion-img [src]="x.profile_url" alt="Cinque Terre" width="600" height="400"></ion-img>
+        <a target="_blank" (click)="removeItem(x?.img_uid)">
+          <ion-img [src]="x?.imgUrl" alt="Cinque Terre" width="600" height="400"></ion-img>
         </a>
-        </div>
+        </div> 
     </ion-row>
   </ion-grid>
 

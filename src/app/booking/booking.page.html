@@ -16,7 +16,7 @@
     <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
   </ion-col>
   </ion-row>
-</ion-grid>
+</ion-grid> 
 <br>
 <h1 style="text-align: center;">Bookings</h1>
 <ion-grid>
@@ -24,13 +24,14 @@
     <ion-col>
       <ion-item>
         <ion-label>Check in</ion-label>
-        <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="checkin"></ion-datetime>
+      
+        <ion-input type="date" [(ngModel)]="checkin"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col>
       <ion-item>
         <ion-label>Check out</ion-label>
-        <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="checkout"></ion-datetime>
+        <ion-input type="date" [(ngModel)]="checkout"></ion-input>
       </ion-item>
     </ion-col>
   </ion-row>

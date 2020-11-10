@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { HotelService } from '../hotel.service';
-require('firebase/firestore');
-require('firebase/auth'); 
+import 'firebase/firestore';
+import 'firebase/auth';
+
 
 @Component({
   selector: 'app-hotel-profile',

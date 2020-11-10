@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HotelService } from '../../hotel.service';
-require('firebase/firestore');
-require('firebase/auth');
+import 'firebase/firestore';
+import 'firebase/auth';
+
 import * as firebase from 'firebase/app';
 @Component({
   selector: 'app-hotel-panel',

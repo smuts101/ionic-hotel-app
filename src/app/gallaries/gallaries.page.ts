@@ -21,15 +21,8 @@ export class GallariesPage implements OnInit {
 
 
   gallaryUpload(){
-    firebase.firestore().collection('hotelsAccount').doc(this.hotelService.getHotelUserUid()).collection("gallaries")
-    .add(Object.assign({hotel_uid:this.hotelService.getHotelUserUid()},{profile_url:this.cardImageBase64}))
-    .then((res) => {
-      console.log("Document successfully written!");
-    })
-    .catch((error) => {
-      console.error("Error writing document: ", error);
-    });
- }
+this.hotelService.addHotelGallary(this.hotelService.getHotelUserUid(),this.hotelService.getHotelUserUid(),this.cardImageBase64)
+}
 
 
 

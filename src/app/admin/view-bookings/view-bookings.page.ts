@@ -14,27 +14,27 @@ list:any=[]
    // this.hotelService.signOut()
  
   console.log(  this.hotelService.getHotelUserUid())
-
     firebase.firestore().collection("hotelsAccount").doc(this.hotelService.getHotelUserUid()).collection("bookings")
     .where("hotel_id", "==", this.hotelService.getHotelUserUid())
     .get()
     .then((querySnapshot) => {
-      //this.router.navigateByUrl('hotel-panel');
         querySnapshot.forEach((doc)=> {
-      // doc.data() is never undefined for query doc snapshots
-           this.list.push(doc.data());
-         
+           this.list.push(Object.assign( doc.data(),{uid:doc.id}) );
          });
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
+ }
 
 
 
+ // bookingStatus(uid,value)
 
+ status(hotel_id,bookingid,status){
+   this.hotelService.bookingStatus(hotel_id,bookingid,status)
+ }
 
-  }
 
   ngOnInit() {
   }

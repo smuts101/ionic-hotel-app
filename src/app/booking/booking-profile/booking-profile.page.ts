@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { HotelService } from '../../hotel.service';
-require('firebase/firestore');
-require('firebase/auth'); 
+import 'firebase/firestore';
+import 'firebase/auth';
 
 
 @Component({
@@ -16,7 +16,9 @@ export class BookingProfilePage implements OnInit {
   profiles:any=[];
   
   hotelid = this.route.snapshot.params.hotelid;
+
   constructor(private route:ActivatedRoute,private router:Router,public hotelService:HotelService) { 
+    
     console.log(this.hotelid)
   }
 

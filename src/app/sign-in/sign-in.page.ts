@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { HotelService } from '../hotel.service';
-require('firebase/firestore');
-require('firebase/auth');
+import 'firebase/firestore';
+import 'firebase/auth';
+
 
 @Component({
   selector: 'app-sign-in',

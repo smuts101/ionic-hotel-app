@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { HotelService } from '../../hotel.service';
-require('firebase/firestore');
-require('firebase/auth');
+import 'firebase/firestore';
+import 'firebase/auth';
 
 @Component({
   selector: 'app-hotel-details',
@@ -34,63 +34,100 @@ export class HotelDetailsPage implements OnInit {
 
   constructor(private router:Router,public hotelService:HotelService) { 
 
-    console.log("----------------->"+this.hotelService.getHotelUserUid() );
+  //   console.log("----------------->"+this.hotelService.getHotelUserUid() );
 
-    console.log("----------------->"+this.hotelService.getHotelUserEmail() );
+  //   console.log("----------------->"+this.hotelService.getHotelUserEmail() );
 
-    var db=firebase.firestore();
-    db.collection('hotelsAccount').where("company_email",'==',this.hotelService.getHotelUserEmail() ).get().then(res=>{
-      console.log(res.size)
-      this.show = res.size
-      if(res.size >= 0){
-        console.log("Create account")
-        this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.hotelService.getHotelUserUid())
-      }else{
-        console.log("already an active user")
-      }
-   }).catch(function(error) {
-      console.log("Error getting documents: ", error);
-  });
+  //   var db=firebase.firestore();
+  //   db.collection('hotelsAccount').where("company_email",'==',this.hotelService.getHotelUserEmail() ).get().then(res=>{
+  //     console.log(res.size)
+  //     this.show = res.size
+  //     if(res.size >= 0){
+  //       console.log("Create account")
+  //       this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,
+  //                          this.history,this.hotelService.getHotelUserUid(),this.cardImageBase64)
+  //     }else{
+  //       console.log("already an active user")
+  //     }
+  //  }).catch(function(error) {
+  //     console.log("Error getting documents: ", error);
+  // });
   }
 
   ngOnInit() {
      console.log(this.hotelService.getUserSession())
   }
 
+
+
+  //this.company_tel,this.employee_id,this.company_name,this.rating,this.address,
+  //                           this.history,this.hotelService.getHotelUserUid(),
+  //                           this.cardImageBase64
   hotelAccounts(){
-    var db=firebase.firestore();
-    db.collection('hotelsAccount').where("company_email",'==',this.hotelService.getUserSession() ).get().then(res=>{
-      console.log(res.size)
-      this.show = res.size
-      if(res.size >= 0){
-        console.log("Create account")
-        this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.hotelService.getHotelUserUid(),this.cardImageBase64)
-      }else{
-        console.log("already an active user")
-      }
-      res.forEach(doc=>{
-        //console.log("already exist"+doc.data().company_tel)
-        this.status = true;
-      })
-//console.log("not exist")
-//this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.hotelService.getUserSession())
-    }).catch(function(error) {
-      console.log("Error getting documents: ", error);
-  });
-  }
+   this.hotelService.hotelProfiles(this.hotelService.getHotelUserUid(),this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.cardImageBase64)
+
+}
+
+// hotelProfiles(uid,company_tel,employee_id,company_name,rating,address,history,imgUrl){
+//   var db =firebase.firestore();
+//   var hotelsRef = db.collection("hotelsAccount");
+//   var hotel = Promise.all([
+//     hotelsRef.doc(uid).set({
+//       company_tel: company_tel,
+//         rating: rating,
+//         employee_id: employee_id,
+//         company_name: company_name,
+//         address:address,
+//         history:history,
+//         owner_uid:uid,
+//         imgUrl:imgUrl
+//     }).then(a=>{console.log("Saved")}).catch(function(error) {
+//       console.log("Error getting document:", error);
+//   })
+// ]);
+// }
 
 
-  hotelProfile(company_tel,employee_id,company_name,rating,address,history,owner_uid){
-    firebase.firestore().collection('hotelsAccount').doc(this.hotelService.getHotelUserUid())
-    .set(Object.assign({company_tel:company_tel},{employee_id:employee_id},{company_name:company_name},
-     {rating:rating},{address:address},{history:history},{owner_uid:owner_uid},{profile_url:this.cardImageBase64}))
-    .then((res) => {
-      console.log("Document successfully written!");
-    })
-    .catch((error) => {
-      console.error("Error writing document: ", error);
-    });
- }
+
+
+
+
+//   hotelAccounts(){
+//     var db=firebase.firestore();
+//     db.collection('hotelsAccount').where("company_email",'==',this.hotelService.getUserSession() ).get().then(res=>{
+//       console.log(res.size)
+//       this.show = res.size
+//       if(res.size >= 0){
+//         console.log("Create account")
+//         this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,
+//                           this.history,this.hotelService.getHotelUserUid(),
+//                           this.cardImageBase64)
+//       }else{
+//         console.log("already an active user")
+//       }
+//       res.forEach(doc=>{
+//         //console.log("already exist"+doc.data().company_tel)
+//         this.status = true;
+//       })
+// //console.log("not exist")
+// //this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.hotelService.getUserSession())
+//     }).catch(function(error) {
+//       console.log("Error getting documents: ", error);
+//   });
+//   }
+
+
+//   hotelProfile(company_tel,employee_id,company_name,rating,address,history,owner_uid,image){
+//     firebase.firestore().collection('hotelsAccount').doc(this.hotelService.getHotelUserUid())
+//     .set(Object.assign({company_tel:company_tel},{employee_id:employee_id},{company_name:company_name},
+//      {rating:rating},{address:address},{history:history},{owner_uid:owner_uid},{profile_url:image}))
+//     .then((res) => {
+//       console.log("Document successfully written!");
+//     })
+//     .catch((error) => {
+//       console.error("Error writing document: ", error);
+//     });
+//  }
 
 
 

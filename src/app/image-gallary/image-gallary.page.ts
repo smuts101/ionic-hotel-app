@@ -12,25 +12,31 @@ export class ImageGallaryPage implements OnInit {
    
 
   constructor(private route:ActivatedRoute,public hotelService:HotelService) { 
-    console.log(  this.hotelService.getHotelUserUid())
-    firebase.firestore().collection("hotelsAccount").doc(this.hotelService.getHotelUserUid()).collection("gallaries")
-    .where("hotel_uid", "==", this.hotelService.getHotelUserUid())
-    .get()
-    .then((querySnapshot) => {
-      //this.router.navigateByUrl('hotel-panel');
-        querySnapshot.forEach((doc)=> {
-      // doc.data() is never undefined for query doc snapshots
-           this.list.push(Object.assign(doc.data(),{img_uid:doc.id}));
-           console.log(this.list)
-         });
-    })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });
+    // this.hotelService.loadingGallary();
+  this. loadingGallary(this.hotelService.getHotelUserUid()) ;   
+    console.log(this.list)
+}
+loadingGallary(uid){
+  firebase.firestore().collection("hotelsAccount").doc(uid).collection("images")
+  .where("owneruid", "==", uid)
+  .get()
+  .then((querySnapshot) => {
+    //this.router.navigateByUrl('hotel-panel');
+      querySnapshot.forEach((doc)=> {
+    // doc.data() is never undefined for query doc snapshots
+   // this.list.push(doc.data())
+         this.list.push(Object.assign(doc.data(),{img_uid:doc.id}));
+         return this.list
+       });
+  })
+  .catch(function(error) {
+      console.log("Error getting documents: ", error);
+  });
 }
 
+
 removeItem(removeID){
-  firebase.firestore().collection("hotelsAccount").doc(this.hotelService.getHotelUserUid()).collection("gallaries").doc(removeID).delete()
+  firebase.firestore().collection("hotelsAccount").doc(this.hotelService.getHotelUserUid()).collection("images").doc(removeID).delete()
 
 }
 
