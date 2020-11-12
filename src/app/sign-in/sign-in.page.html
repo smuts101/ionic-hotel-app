@@ -1,21 +1,27 @@
 
 <ion-content  >
-  <a href="user-panel">  </a>
-    <ion-grid style="height:20%;background-color:#91C622;padding:0%; "  >
-    <ion-row style="padding-top: 40px;;">
+  
+  <ion-grid  style="background-color:#91C622;padding:0%;" >
+    <ion-row >
       <ion-col size="12">
-        <h1 style="text-align: center;color:#fff;">Sign In</h1>
+        <ion-icon name="arrow-back-outline"  [routerLink]="'/choose-account'"  style="color:#fdfdfd ;font-size: 2em;float:right;"></ion-icon>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <br>
+  <br>  <br>  <br>  <br>  
   
   <ion-grid>
-
+    <ion-grid>
+      <ion-row >
+        <ion-col style="text-align: center;color:#5a751e;">
+          <h1>Sign In</h1>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label position="floating">Email</ion-label>
+          <ion-label position="floating" style="color:#058a3c;">Email</ion-label>
           <ion-input [(ngModel)]="email"  name="email"  type="text"></ion-input>
         </ion-item>
       </ion-col>
@@ -23,26 +29,24 @@
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input [(ngModel)]="password"  name="password" type="text"></ion-input>
+          <ion-label position="floating"  style="color:#058a3c;">Password</ion-label>
+          <ion-input [(ngModel)]="password"  name="password" type="password"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-button expand="block" style="--background:#196F3D;" expand="full" (click)="loginRegister()" >Full Button</ion-button>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <a href="hotel-signup">Create Account!</a>
-          </ion-item>
-      </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-button expand="block" style="--background:#196F3D;" expand="full" (click)="loginRegister()" >SignIn</ion-button>
+  <ion-grid>
+   <ion-row>
+    <ion-col>
+      <ion-item>
+        <a  [routerLink]="'/hotel-signup'"   style="text-decoration: none;color:green">Dont have account?</a>
+        </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-grid> 
 
   </ion-content>
  

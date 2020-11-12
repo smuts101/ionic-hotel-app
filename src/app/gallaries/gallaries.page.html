@@ -1,26 +1,23 @@
 
 <ion-content  >
-  <ion-grid style="height:15%;background-color:#91C622;padding:0%; "  >
-  <ion-row style="padding-top: 40px;color:white;text-align: center;">
-    <h3>Upload Images</h3>
-  </ion-row>
-</ion-grid>
-<ion-item-divider>
-  <ion-grid> 
-    <ion-row>
-      <ion-col>
+  <ion-grid  style="background-color:#91C622;padding:0%;" >
+    <ion-row >
+      <ion-col size="12">
         <ion-icon name="arrow-back-outline"  [routerLink]="'/hotel-panel'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
       </ion-col>
-    <ion-col>
-      <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
-    </ion-col>
+      </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row >
+      <ion-col style="text-align: center;color:#5a751e;">
+        <h1>Upload Images</h1>
+      </ion-col>
     </ion-row>
   </ion-grid>
-</ion-item-divider>
 
-<br>
-
-
+  <br>
+  <br>
 
 
 <ion-row>
@@ -31,6 +28,9 @@
     </ion-item>
   </ion-col>
 </ion-row>
+<br>
+<br>
+
 <ion-row>
   <ion-col>
     <ion-button expand="block" style="--background:#196F3D;" expand="full"  (click)=" gallaryUpload()" >Upload</ion-button>

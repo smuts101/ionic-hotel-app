@@ -18,11 +18,11 @@ export class HotelDetailsPage implements OnInit {
   rating:any
   address:any
   history:any
-  email:any
+   email:any
    status:boolean = false;
    array:any={}
-  show:any
-
+   show:any
+   price:any
 
   imageError: string;
   isImageSaved: boolean;
@@ -64,7 +64,7 @@ export class HotelDetailsPage implements OnInit {
   //                           this.history,this.hotelService.getHotelUserUid(),
   //                           this.cardImageBase64
   hotelAccounts(){
-   this.hotelService.hotelProfiles(this.hotelService.getHotelUserUid(),this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.cardImageBase64)
+   this.hotelService.hotelProfiles(this.hotelService.getHotelUserUid(),this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.cardImageBase64,this.price)
 
 }
 

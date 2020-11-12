@@ -17,8 +17,8 @@ export class HotelImgsPage implements OnInit {
   constructor(private route:ActivatedRoute,public hotelService:HotelService) { 
    console.log(this.hotelid)
   
-    firebase.firestore().collection("hotelsAccount").doc(this.hotelid).collection("gallaries")
-    .where("hotel_uid", "==", this.hotelid)
+    firebase.firestore().collection("hotelsAccount").doc(this.hotelid).collection("images")
+    
     .get()
     .then((querySnapshot) => {
       //this.router.navigateByUrl('hotel-panel');

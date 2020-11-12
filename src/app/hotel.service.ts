@@ -133,7 +133,7 @@ hotelSignUp(employee_no,company_email,company_phone,hotel_password){
 
 
 
-hotelProfiles(uid,company_tel,employee_id,company_name,rating,address,history,imgUrl){
+hotelProfiles(uid,company_tel,employee_id,company_name,rating,address,history,imgUrl,price){
 
 
   var db =firebase.firestore();
@@ -148,7 +148,8 @@ hotelProfiles(uid,company_tel,employee_id,company_name,rating,address,history,im
         address:address,
         history:history,
         owner_uid:uid,
-        imgUrl:imgUrl
+        imgUrl:imgUrl,
+        price:price
         
     }).then(a=>{console.log("Saved")}).catch(function(error) {
       console.log("Error getting document:", error);
