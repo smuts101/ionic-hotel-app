@@ -12,7 +12,10 @@ import 'firebase/auth';
 })
 export class ListHotelPage implements OnInit {
 
+  
   profiles:any=[]
+
+
   constructor() { }
 
   ngOnInit() { 

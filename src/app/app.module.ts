@@ -19,6 +19,7 @@ var firebaseConfig = {
   messagingSenderId: "797569092752",
   appId: "1:797569092752:web:b794b1cb8368c3a1ca1c15"
 };
+
 firebase.initializeApp(firebaseConfig);
 
 @NgModule({

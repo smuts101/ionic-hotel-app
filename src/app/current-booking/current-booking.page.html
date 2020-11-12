@@ -1,86 +1,35 @@
 
 <ion-content  >
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <h1>Make Hotel Profile</h1>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label position="floating">Name</ion-label>
-          <ion-input [(ngModel)]="name"  name="name"  type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-      <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label position="floating">rating</ion-label>
-          <ion-input [(ngModel)]="rating"  name="rating"  type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-  
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label position="floating">location</ion-label>
-          <ion-input [(ngModel)]="location"  name="location"  type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label position="floating">types</ion-label>
-          <ion-input [(ngModel)]="types"  name="types"  type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label position="floating">price</ion-label>
-          <ion-input [(ngModel)]="price"  name="price"  type="text"></ion-input>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label id="profile_image" color="primary" stacked>Profilbild wählen</ion-label>
-          <ion-input type="file" accept="image/*" id="upload" (change)="fileChangeEvent($event)"></ion-input>
-        </ion-item>
-      </ion-col>
-      </ion-row>
-  </ion-grid>
-  <ion-button expand="block" style="--background:#196F3D;" expand="full"  (click)="makeHotelProfile()" >Full Button</ion-button>
-   -------------------------------------------------------------------------------------------------------------------
-  --------------------------------------------------------------------------------------------------------------------
-  --------------------------------------------------------------------------------------------------------------------
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <h1>Upload Images</h1>
-      </ion-item>
-    </ion-col>
-  </ion-row> 
-<ion-grid>
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <ion-label id="profile_image" color="primary" stacked>Profilbild wählen</ion-label>
-        <ion-input type="file" accept="image/*" id="upload" (change)="fileChangeEvent($event)"></ion-input>
-      </ion-item>
-    </ion-col>
+
+  <ion-row *ngFor="let x of list"> 
+    <ion-card style="width:100%;">
+      <ion-list  *ngFor="let y of  profile">
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-chip style="--background:white">
+              <ion-avatar>
+                <img [src]="y.profile_url">
+              </ion-avatar>
+              <ion-label>    {{y.name}} {{y.surname}}</ion-label>
+            </ion-chip>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-list>
+      <span><b>Check in:</b> {{x.checkin}}</span><br>   
+      <span><b>Check out:</b> {{x.checkout}}</span><br> 
+      <span><b>Kids:</b> {{x.kids}}</span><br>  
+      <span><b>Adult:</b> {{x.adult}}</span><br>    
+      <span><b>Rooms:</b> {{x.rooms}}</span><br>  
+      <span><b>Date:</b> {{x.date}}</span><br> 
+      <span><b>Time:</b> {{x.time}}</span><br>  
+      <span><b>Status:</b> {{x.status}}</span><br>   
+   </ion-card>
   </ion-row>
-  <ion-button expand="block" style="--background:#196F3D;" expand="full"  (click)=" addImages()" >Full Button</ion-button>
-</ion-grid>
----------------------------------------------------------------------------------------------------------------------
+
+
+  ---------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 <!--

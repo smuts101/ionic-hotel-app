@@ -124,10 +124,22 @@ hotelSignUp(employee_no,company_email,company_phone,hotel_password){
         console.log("Error getting documents: ", error);
     });
 }
+
+
+
+
+
+
+
+
+
 hotelProfiles(uid,company_tel,employee_id,company_name,rating,address,history,imgUrl){
+
+
   var db =firebase.firestore();
   var hotelsRef = db.collection("hotelsAccount");
   var hotel = Promise.all([
+
     hotelsRef.doc(uid).set({
       company_tel: company_tel,
         rating: rating,
@@ -137,11 +149,26 @@ hotelProfiles(uid,company_tel,employee_id,company_name,rating,address,history,im
         history:history,
         owner_uid:uid,
         imgUrl:imgUrl
+        
     }).then(a=>{console.log("Saved")}).catch(function(error) {
       console.log("Error getting document:", error);
   })
 ]);
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
 addHotelGallary(uid,owneruid,imgUrl){
   var db =firebase.firestore();
   var hotelsRef = db.collection("hotelsAccount");

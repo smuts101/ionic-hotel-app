@@ -11,7 +11,10 @@
   </ion-grid>
 </ion-item-divider>
 <ion-content>
-  <ion-row *ngFor="let x of list">
+
+ 
+
+  <ion-row *ngFor="let x of list"> 
     <ion-card style="width:100%;">
       <span><b>Email:</b> {{x.user_email}}</span><br>   
        <span><b>Check In:</b>  {{x.checkin}}</span><br>
@@ -19,8 +22,10 @@
        <span><b>Adults:</b> {{x.adults}}</span><br>
        <span><b>Kids:</b> {{x.kids}}</span><br>
        <span><b>Rooms:</b> {{x.rooms}}</span><br>
-       <span><b>Status:</b> {{x.status}}</span><br>
+       <span *ngIf="x.status==0"><b>Status:</b> Declaned</span><br>
+       <span *ngIf="x.status==1"><b>Status:</b> Approved</span><br>
        <ion-button (click)="status(x.hotel_id,x.uid,'1')">Accept</ion-button>
+       <ion-button (click)="status(x.hotel_id,x.uid,'0')">declane</ion-button>
    </ion-card>
   </ion-row>
 </ion-content>

@@ -17,7 +17,7 @@ list:any=[]
     firebase.firestore().collection("hotelsAccount").doc(this.hotelService.getHotelUserUid()).collection("bookings")
     .where("hotel_id", "==", this.hotelService.getHotelUserUid())
     .get()
-    .then((querySnapshot) => {
+    .then((querySnapshot) => { 
         querySnapshot.forEach((doc)=> {
            this.list.push(Object.assign( doc.data(),{uid:doc.id}) );
          });
@@ -25,6 +25,7 @@ list:any=[]
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
+    
  }
 
 
