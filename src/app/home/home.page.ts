@@ -9,11 +9,9 @@ import { Router } from '@angular/router';
 export class HomePage {
 
   constructor(private router:Router) {
-    setInterval(this.setTimeOut, 1000)
+  
   }
-  setTimeOut(){
-    this.router.navigateByUrl('list-hotel');
-  }
+ 
   
 
   

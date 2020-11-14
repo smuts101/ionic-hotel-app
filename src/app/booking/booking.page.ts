@@ -7,43 +7,51 @@ import { HotelService } from '../hotel.service';
   styleUrls: ['./booking.page.scss'],
 })
 export class BookingPage implements OnInit {
+   formData:any;
+   hotelid = this.route.snapshot.params.hotelid;
+   
+  
 
-  hotelid = this.route.snapshot.params.hotelid;
-  checkin:any="";
-  checkout:any="";
-  kids:any="";
-  adults:any="";
-  rooms:any="";
+  constructor(private route:ActivatedRoute,public hotelService:HotelService) {
+
+    this.formData = {
+      checkin:'',
+      checkout:'',
+      kids:'',
+      adults:'',
+      rooms:'',
   
-  bankName:any;
-  cardno:any;
-  month:any;
-  year:any;
-  vcc:any;
-  
-  constructor(private route:ActivatedRoute,public hotelService:HotelService) { }
+      bankName:'',
+      cardno:'',
+      month:'',
+      year:'',
+      vcc:''
+    };
+
+
+
+   }
   
 
   bookingDetails(){
-   
-   
-    
-      
-    console.log(this.hotelService.getDates()
-    )    
-  
-    console.log(    this.hotelService.getTimes(),  
-
-    )    
-
-    
-    console.log(this.hotelService.getUserSession());
-    console.log(this.hotelService.getUserSessionUid());
-    this.hotelService.booking(this.checkin,this.checkout,this.kids,this.adults,
-                              this.rooms,this.hotelid,this.hotelService.getUserSession(),this.hotelService.getUserSessionUid()
-                              ,this.bankName,this.cardno,this.month,this.year,this.vcc, this.hotelService.getTimes(),  this.hotelService.getDates()
-                              );
-   }
+     
+      this.hotelService.booking(this.formData.checkin,
+                                this.formData.checkout,
+                                this.formData.kids,
+                                this.formData.adults,
+                                this.formData.rooms,
+                                this.hotelid,
+                                this.hotelService.getUserSession(),
+                                this.hotelService.getUserSessionUid()
+                               ,this.formData.bankName,
+                                this.formData.cardno,
+                                this.formData.month,
+                                this.formData.year,
+                                this.formData.vcc,
+                                this.hotelService.getTimes(), 
+                                this.hotelService.getDates()
+                               );
+      }
 
 
   ngOnInit() {

@@ -23,17 +23,11 @@ export class BookingProfilePage implements OnInit {
   }
 
   ngOnInit() {
-    
-    
-
     var docRef =   firebase.firestore().collection('hotelsAccount').doc(this.hotelid);
-
     docRef.get().then(doc => {
         if (doc.exists) {
           this.profiles.push(doc.data());
             console.log("Document data:", doc.data());
-           
-
           } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
@@ -41,15 +35,6 @@ export class BookingProfilePage implements OnInit {
     }).catch(function(error) {
         console.log("Error getting document:", error);
     });
-
-/*
-    firebase.firestore().collection('hotelsAccount').where("company_email",'==','kasicoodes@gmail.com').onSnapshot(res => {
-      res.forEach(element => {
-        this.profiles.push(element.data());
-        console.log(this.profiles)
-      });
-      console.log('Successful!!!');
-    });*/
   }
   async signOut(){
     this.hotelService.signOut();

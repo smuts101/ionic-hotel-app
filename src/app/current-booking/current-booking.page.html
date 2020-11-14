@@ -1,37 +1,53 @@
 
 <ion-content  >
-
+  <ion-grid  style="background-color:#91C622;padding:0%;" >
+    <ion-row >
+      <ion-col size="1.5">
+        <ion-icon name="arrow-back-outline"  [routerLink]="'/booking-list'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
+     </ion-col>
+      </ion-row>
+  </ion-grid> 
+<ion-card style="background-color:#9de404;">
+<ion-grid>
+  <ion-row *ngFor="let y of  profile">
+    <ion-col size="2">
+      <img  style="width: 100%;height:100%;border-radius: 100%;" [src]="y.profile_url">
+    </ion-col>
+    <ion-col size="6">
+      <ion-label style="color:#fff;font-weight: bold;">    {{y.name}} {{y.surname}}</ion-label>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-card>
   <ion-row *ngFor="let x of list"> 
-    <ion-card style="width:100%;">
-      <ion-list  *ngFor="let y of  profile">
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-chip style="--background:white">
-              <ion-avatar>
-                <img [src]="y.profile_url">
-              </ion-avatar>
-              <ion-label>    {{y.name}} {{y.surname}}</ion-label>
-            </ion-chip>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-    </ion-list>
+    <ion-card style="width:100%;padding:2%;">
       <span><b>Check in:</b> {{x.checkin}}</span><br>   
       <span><b>Check out:</b> {{x.checkout}}</span><br> 
       <span><b>Kids:</b> {{x.kids}}</span><br>  
       <span><b>Adult:</b> {{x.adult}}</span><br>    
       <span><b>Rooms:</b> {{x.rooms}}</span><br>  
-      <span><b>Date:</b> {{x.date}}</span><br> 
-      <span><b>Time:</b> {{x.time}}</span><br>  
-      <span><b>Status:</b> {{x.status}}</span><br>   
+     
+      <br>  
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            Status: <br>{{x.status}}
+          </ion-col>
+          <ion-col>
+            Date: <br>{{x.time}}
+          </ion-col>
+          <ion-col>
+            Date: <br>{{x.date}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>   
    </ion-card>
   </ion-row>
 
 
-  ---------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------
 <!--
  <ion-grid>
 <ion-row>
@@ -50,9 +66,6 @@
   </ion-row>
 </ion-grid>  -->
 
----------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------
 <!-- 
 <ion-grid>
 <ion-row>

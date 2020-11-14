@@ -23,7 +23,8 @@ export class HotelDetailsPage implements OnInit {
    array:any={}
    show:any
    price:any
-
+   feedback:any;
+   state=0;
   imageError: string;
   isImageSaved: boolean;
   EditIsImageSaved: boolean;
@@ -33,25 +34,7 @@ export class HotelDetailsPage implements OnInit {
 
 
   constructor(private router:Router,public hotelService:HotelService) { 
-
-  //   console.log("----------------->"+this.hotelService.getHotelUserUid() );
-
-  //   console.log("----------------->"+this.hotelService.getHotelUserEmail() );
-
-  //   var db=firebase.firestore();
-  //   db.collection('hotelsAccount').where("company_email",'==',this.hotelService.getHotelUserEmail() ).get().then(res=>{
-  //     console.log(res.size)
-  //     this.show = res.size
-  //     if(res.size >= 0){
-  //       console.log("Create account")
-  //       this.hotelProfile(this.company_tel,this.employee_id,this.company_name,this.rating,this.address,
-  //                          this.history,this.hotelService.getHotelUserUid(),this.cardImageBase64)
-  //     }else{
-  //       console.log("already an active user")
-  //     }
-  //  }).catch(function(error) {
-  //     console.log("Error getting documents: ", error);
-  // });
+      
   }
 
   ngOnInit() {
@@ -64,6 +47,8 @@ export class HotelDetailsPage implements OnInit {
   //                           this.history,this.hotelService.getHotelUserUid(),
   //                           this.cardImageBase64
   hotelAccounts(){
+    this.feedback= this.hotelService.showFeedBack()
+    this.state=1;
    this.hotelService.hotelProfiles(this.hotelService.getHotelUserUid(),this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.cardImageBase64,this.price)
 
 }

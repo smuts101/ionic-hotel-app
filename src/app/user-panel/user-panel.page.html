@@ -1,53 +1,38 @@
-<ion-content  >
-  <ion-grid style="background-color:#91C622;padding:0%; "  >
+<ion-content >
+  <ion-grid  style="background-color:#91C622;padding:0%;" >
     <ion-row >
-      <ion-col size="12">
-        <h1 style="text-align: center;color:#fff;">Welcome </h1>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  
-<ion-toolbar>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
+      <ion-col size="1.5">
         <ion-icon name="arrow-back-outline"  [routerLink]="'/booking-list'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
       </ion-col>
-    <ion-col>
-      <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
-    </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-toolbar>
-<ion-toolbar>
-  <ion-grid>
-  
-    <ion-col>
-    <a [routerLink]="'/booking-history'" >Booking History</a>  
-    </ion-col>
-    <ion-col>
-      <a [routerLink]="'/current-booking'">  Current Booking </a>
-    </ion-col>
-  
-    <ion-col size="6">
-      <a [routerLink]="'/user-profile'" > Update Profile</a>
-    </ion-col>
-  </ion-grid>
-</ion-toolbar>
- <br>
-   
-  <ion-card >
+      <ion-col size="10">
+        <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
+     </ion-col>
+      </ion-row>
+  </ion-grid> 
+  <ion-card  >
     <ion-img [src]="profile.profile_url"></ion-img>
     <ion-item>
-     
-      <ion-icon name="pin" slot="start"></ion-icon>
-      <span>Name: {{profile.name}}</span><br>
-      <span>Surname: {{profile.surname}}</span><br>
-      <span>Phone: {{profile.phone}}</span>
-      
+      <ion-grid  style="--background:#dbecda;" style="color:#075f0f;font-weight: bold;">
+        <ion-row style="padding-top:1%;">
+          Name: {{profile.name}}
+        </ion-row>
+        <ion-row style="padding-top:1%;">
+          Surname: {{profile.surname}}
+        </ion-row>
+        <ion-row style="padding-top:1%;">
+          Phone: {{profile.phone}}
+        </ion-row>
+      </ion-grid>
     </ion-item>
   </ion-card>
-
-
-
+  <ion-toolbar style="--padding-top:60%;">
+    <ion-segment color="white" value="all">
+      <ion-segment-button style="background-color:#08b316;color:#fff" [routerLink]="'/current-booking'" value="all">
+        Current Booking
+      </ion-segment-button>
+      <ion-segment-button style="background-color:#08b316;color:#fff" [routerLink]="'/user-profile'" value="favorites">
+        Update Profile
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-content>

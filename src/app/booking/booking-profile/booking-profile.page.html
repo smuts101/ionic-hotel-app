@@ -1,16 +1,8 @@
 
 
 <ion-content [fullscreen]="true">
-  
-  <ion-grid style="height:15%;background-color:#91C622;padding:0%; "  >
-    <ion-row style="padding-top: 30px;;">
-      <ion-col size="12">
-        <ion-searchbar style="--border-radius: 50px;--background:#B2D960;height: 100%;" aria-placeholder="Search Hotel"></ion-searchbar>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <ion-grid>
-    <ion-row>
+  <ion-grid  style="background-color:#91C622;padding:0%;" >
+    <ion-row >
       <ion-col>
         <ion-icon name="arrow-back-outline"  [routerLink]="'/booking-list'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
       </ion-col>
@@ -22,32 +14,67 @@
     </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-grid  *ngFor="let item of profiles" >
-    <ion-row >
+ <div *ngFor="let item of profiles" > 
+  <ion-card  >
+    <ion-card-header>
       <ion-img style="width:100%;" [src]="item.imgUrl">
       </ion-img>
-      <ion-col >
-            <ion-card-subtitle>Name: {{item.company_name}}</ion-card-subtitle>
-            <ion-card-subtitle>Rating: {{item.rating}}</ion-card-subtitle>
-            <ion-card-subtitle>Location: {{item.address}}</ion-card-subtitle>
-            <ion-card-subtitle>Tel: 012 987 1029</ion-card-subtitle>
-            <ion-card-subtitle>Email: capehotel@caphet.com</ion-card-subtitle>
-      </ion-col>
-    </ion-row>
-  <ion-row>
-      <ion-col >
-        <ion-card-subtitle style="font-weight:bold">ABOUT</ion-card-subtitle> 
-          <ion-card-subtitle>{{item.history}}</ion-card-subtitle>
-    </ion-col>
-    </ion-row>
+      <ion-card-subtitle style="color:#66861f;"><b>HOTEL NAME:</b> </ion-card-subtitle>
+      <ion-card-subtitle style="color:#66861f;"> {{item.company_name}}</ion-card-subtitle>
+      <ion-card-subtitle>
+      <div *ngIf="item.rating==1">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+      </div>
+      <div *ngIf="item.rating==2">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+      </div>
+      <div *ngIf="item.rating==3">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+      </div>
+      <div *ngIf="item.rating==4">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+      </div>
+      <div *ngIf="item.rating==5">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+        <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+      </div>
+      </ion-card-subtitle>
+      <ion-card-subtitle style="color:#66861f;"><b>ABOUT</b></ion-card-subtitle>
+      <ion-card-subtitle style="color:#66861f;"> {{item.history}}</ion-card-subtitle>
+      <ion-card-subtitle style="color:#66861f;"><b>LOCATION</b></ion-card-subtitle>
+      <ion-card-subtitle style="color:#66861f;"> {{item.address}}</ion-card-subtitle>
+      <ion-card-subtitle style="color:#66861f;"><b>CONTACTS</b></ion-card-subtitle>
+      <ion-card-subtitle style="color:#66861f;">Telephone: {{item.company_tel}}</ion-card-subtitle>
+      <ion-card-subtitle style="color:#66861f;">Email: smuts@gmail.com</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+ 
+
+  <ion-grid  >
     <ion-row>
-  
-    <ion-col >
-      <ion-button [routerLink]="'/booking/'+hotelid"  style="--background: #fff;--background:#91C622;border-radius: 5px;" expand="full">MAKE BOOKING</ion-button>
-    </ion-col>
+    <ion-segment style="position: absolute;bottom: 10px;" >
+      <ion-segment-button  [routerLink]="'/booking/'+hotelid"    style="--background:#4d6e05;color:#fff;"  value="enemies">
+        <ion-label>MAKE BOOKING!</ion-label>
+      </ion-segment-button>
+    </ion-segment>
     </ion-row>
   </ion-grid>
-  
+</div>
 </ion-content>
+
+
+
+
+
+
 
 

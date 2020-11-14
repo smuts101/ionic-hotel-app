@@ -10,7 +10,10 @@ import { HotelService } from 'src/app/hotel.service';
 })
 export class ViewBookingsPage implements OnInit {
 list:any=[]
+feedback:any;
+state:any=0;
   constructor(private route:ActivatedRoute,public hotelService:HotelService) { 
+
    // this.hotelService.signOut()
  
   console.log(  this.hotelService.getHotelUserUid())
@@ -33,7 +36,10 @@ list:any=[]
  // bookingStatus(uid,value)
 
  status(hotel_id,bookingid,status){
-   this.hotelService.bookingStatus(hotel_id,bookingid,status)
+  this.feedback= this.hotelService.showFeedBack()
+  this.state=1;
+  this.hotelService.bookingStatus(hotel_id,bookingid,status)
+  
  }
 
 

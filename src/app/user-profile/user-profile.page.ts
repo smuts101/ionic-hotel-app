@@ -9,16 +9,12 @@ import { HotelService } from '../hotel.service';
   styleUrls: ['./user-profile.page.scss'],
 })
 export class UserProfilePage implements OnInit {
-
-
   name:any
   surname:any
   phone:any
-
    status:boolean = false;
    array:any={}
    show:any
-
 
   imageError: string;
   isImageSaved: boolean;

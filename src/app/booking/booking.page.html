@@ -1,45 +1,63 @@
-<ion-content  >
-  <ion-grid style="height:20%;background-color:#91C622;padding:0%; "  >
-  <ion-row style="padding-top: 40px;;">
-    <ion-col size="12">
-      <ion-searchbar style="--border-radius: 50px;--background:#B2D960;height: 100%;" aria-placeholder="Search Hotel"></ion-searchbar>
-    </ion-col>
-  </ion-row>
-</ion-grid>
 
-<ion-grid> 
-  <ion-row>
-    <ion-col>
-      <ion-icon name="arrow-back-outline"  [routerLink]="'/hotel-panel'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
-    </ion-col>
-  <ion-col>
-    <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
-  </ion-col>
-  </ion-row>
-</ion-grid> 
-<br>
-<h1 style="text-align: center;">Bookings</h1>
+ <ion-content  >
+  <ion-grid  style="background-color:#91C622;padding:0%;" >
+    <ion-row >
+      <ion-col size="1.5">
+        <ion-icon name="arrow-back-outline"  [routerLink]="'/booking-list'"  style="color:black;font-size: 2em;float:right;"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>  </ion-col>
+    </ion-row>
+  </ion-grid> 
+
+
+<h1 style="text-align: center;color:#5e8802">Bookings</h1>
+<form  novalidate #registerForm="ngForm">
 <ion-grid>
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-label>Check in</ion-label>
-      
-        <ion-input type="date" [(ngModel)]="checkin"></ion-input>
+        <ion-label style="color:#5e8802">Check in</ion-label>
+        <ion-input type="date" 
+                   [(ngModel)]="formData.checkin" 
+                   #checkin="ngModel"
+                   name="checkin"
+                   required
+                   >
+                  </ion-input>
+                
+      </ion-item>
+      <ion-item *ngIf="!checkin.valid && checkin.touched">
+        <ion-text color="danger">Checkin required</ion-text>
       </ion-item>
     </ion-col>
-    <ion-col>
+     <ion-col>
       <ion-item>
-        <ion-label>Check out</ion-label>
-        <ion-input type="date" [(ngModel)]="checkout"></ion-input>
+        <ion-label style="color:#5e8802">Check out</ion-label>
+        <ion-input type="date" 
+                   [(ngModel)]="formData.checkout"
+                   #checkout="ngModel"
+                   name="checkout"
+                   required
+                   ></ion-input>
+                
+      </ion-item>
+      <ion-item *ngIf="!checkout.valid && checkout.touched">
+        <ion-text color="danger">Checkout required</ion-text>
       </ion-item>
     </ion-col>
   </ion-row>
+  
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-label>Adult</ion-label>
-        <ion-select [(ngModel)]="adults" placeholder="">
+        <ion-label style="color:#5e8802">Adult</ion-label>
+        <ion-select [(ngModel)]="formData.adults" 
+                    placeholder="" 
+                    #adults="ngModel"
+                    name="adults"
+                    required
+                    >
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
           <ion-select-option value="3">3</ion-select-option>
@@ -51,12 +69,21 @@
           <ion-select-option value="9">9</ion-select-option>
         <ion-select-option value="10">10</ion-select-option>
         </ion-select>
+
+      </ion-item>
+      <ion-item *ngIf="!adults.valid && adults.touched">
+        <ion-text color="danger">Adults required</ion-text>
       </ion-item>
     </ion-col>
     <ion-col>
       <ion-item>
         <ion-label>Kids</ion-label>
-        <ion-select [(ngModel)]="kids" placeholder="">
+        <ion-select [(ngModel)]="formData.kids" 
+                    placeholder="" 
+                    #kids="ngModel"
+                    name="kids"
+                    required
+                    >
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
           <ion-select-option value="3">3</ion-select-option>
@@ -69,13 +96,22 @@
         <ion-select-option value="10">10</ion-select-option>
         </ion-select>
       </ion-item>
+      <ion-item *ngIf="!kids.valid && kids.touched">
+        <ion-text color="danger">kids required</ion-text>
+      </ion-item>
     </ion-col>
-  </ion-row> 
-  <ion-row>
-    <ion-col>
+  </ion-row>
+   <ion-row>
+    <br>
+    <ion-row>
       <ion-item>
-        <ion-label>Rooms</ion-label>
-        <ion-select [(ngModel)]="rooms" placeholder="">
+        
+        <ion-select [(ngModel)]="formData.rooms"
+                    placeholder="Rooms" 
+                    #rooms="ngModel"
+                    name="rooms"
+                    required
+                    >
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
           <ion-select-option value="3">3</ion-select-option>
@@ -83,63 +119,113 @@
           <ion-select-option value="5">5</ion-select-option>
         </ion-select>
       </ion-item>
-    </ion-col>
+      <ion-item *ngIf="!rooms.valid && rooms.touched">
+        <ion-text color="danger">Rooms required</ion-text>
+      </ion-item>
+    </ion-row>
   </ion-row>
-  <h1 style="text-align: center;">Payment</h1>
+  
+ 
+  <h1 style="text-align: center;color:#5e8802">Payment</h1>
  
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label>Bank Name</ion-label>
-          <ion-select [(ngModel)]="bankName" placeholder="Bank Name">
+          <ion-label style="color:#5e8802">Bank Name</ion-label>
+          <ion-select [(ngModel)]="formData.bankName"
+                      placeholder="Bank Name" 
+                      #bankName="ngModel"
+                      name="bankName"
+                      required
+                      >
             <ion-select-option value="fnb">FNB</ion-select-option>
             <ion-select-option value="nedbank">Nedbank</ion-select-option>
             <ion-select-option value="absa">Absa</ion-select-option>
             <ion-select-option value="capitec">Capitec</ion-select-option>
           </ion-select>
         </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-item>
-          <ion-label position="floating">Card Number</ion-label>
-          <ion-input [(ngModel)]="cardno" type="text"></ion-input>
+        <ion-item *ngIf="!bankName.valid && bankName.touched">
+          <ion-text color="danger">bank name required</ion-text>
         </ion-item>
       </ion-col>
     </ion-row>
+
+    
     <ion-row>
       <ion-col>
-        <ion-select [(ngModel)]="month" type="text" placeholder="Month">
+        <ion-item>
+          <ion-label position="floating" style="color:#5e8802">Card Number</ion-label>
+          <ion-input [(ngModel)]="formData.cardno"
+                     type="text"
+                     #cardno="ngModel"
+                     name="cardno"
+                     required
+                     ></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!cardno.valid && cardno.touched">
+          <ion-text color="danger">Card number is required</ion-text>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    
+    <ion-row>
+      <ion-col>
+        <ion-item>
+        <ion-select [(ngModel)]="formData.month"
+                
+                    placeholder="Month"     
+                    #month="ngModel"
+                    name="month"
+                    required
+                    >
           <ion-select-option value="january">January</ion-select-option>
           <ion-select-option value="february">February</ion-select-option>
         </ion-select>
+        </ion-item>
+        <ion-item *ngIf="!month.valid && month.touched">
+          <ion-text color="danger">Month is required</ion-text>
+        </ion-item>
       </ion-col>
       <ion-col>
-        <ion-select [(ngModel)]="year" placeholder="Year">
+        <ion-item>
+
+       
+        <ion-select [(ngModel)]="formData.year" 
+                    placeholder="Year"
+                    #year="ngModel"
+                    name="year"
+                    required
+                    >
           <ion-select-option value="2020">2020</ion-select-option>
           <ion-select-option value="2021">2021</ion-select-option>
         </ion-select>
+      </ion-item>
+      <ion-item *ngIf="!year.valid && year.touched">
+        <ion-text color="danger">Year is required</ion-text>
+      </ion-item>
       </ion-col>
     </ion-row>
+    
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-label position="floating">VCC</ion-label>
-          <ion-input [(ngModel)]="vcc" type="text"></ion-input>
+          <ion-label position="floating" style="color:#5e8802">VCC</ion-label>
+          <ion-input [(ngModel)]="formData.vcc" 
+                     type="text"
+                     #vcc="ngModel"
+                     name="vcc"
+                     required
+                     ></ion-input>
+        </ion-item>
+        <ion-item *ngIf="!vcc.valid && vcc.touched">
+          <ion-text color="danger">VCC is required</ion-text>
         </ion-item>
       </ion-col>
     </ion-row>
-  
 
 
-  <ion-row>
-    <ion-col>
-    <ion-item>
-   <ion-button expand="block" style="--background:#196F3D;" (click)="bookingDetails()" expand="full" >Full Button</ion-button>
-  </ion-item>
- </ion-col>
-</ion-row>
-
+<ion-button expand="block"  [disabled] = "!registerForm.form.valid" style="--background:#196F3D;" (click)="bookingDetails()" expand="full" >BOOK</ion-button>
 </ion-grid>
+</form>
 </ion-content>

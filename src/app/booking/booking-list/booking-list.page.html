@@ -1,46 +1,95 @@
-
 <ion-content  >
-  <ion-grid style="height:15%;background-color:#91C622;padding:0%; "  >
-  <ion-row style="padding-top: 15px;;">
-    <ion-col size="12">
-      <ion-searchbar style="--border-radius: 50px;--background:#B2D960;height: 100%;" aria-placeholder="Search Hotel"></ion-searchbar>
-    </ion-col>
-  </ion-row>
-
-</ion-grid>
-<ion-grid>
-  <ion-row>
- 
-    <ion-col>
-    <ion-icon name="person-circle-outline" [routerLink]="'/user-panel'"   style="color:black;font-size: 2em;float:right;"></ion-icon>
-  </ion-col>
-  <ion-col>
-    <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
-  </ion-col>
-  </ion-row>
-</ion-grid>
-  <ion-grid *ngFor="let item of profiles">
-    <a [routerLink]="'/booking-profile/'+item.hotel_id"> 
+  <ion-grid  style="background-color:#91C622;padding:0%;" >
     <ion-row >
-
-    <ion-col  style="height:110px;background-color: #E7F3CD;border:1px solid #E7F3CD; border-top-left-radius: 10px 15px;border-bottom-left-radius: 10px 15px;" size="4">
-      <ion-img  style="width:100%;height: 100%;padding:0%" [src]="item.imgUrl"></ion-img>
-    </ion-col>
+      <ion-col size="6">
+        <ion-icon name="person-circle-outline" [routerLink]="'/user-panel'"   style="color:black;font-size: 2em;float:right;"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon>
+      </ion-col>
+    </ion-row> 
+  </ion-grid>
+    <ion-grid *ngFor="let item of profiles">
+   
+      <ion-row    [routerLink]="'/booking-profile/'+item.hotel_id">
+        <ion-card style="width:100%;">
+          <ion-grid>
+            <ion-row>
+          <ion-col  style="height:110px; border-top-left-radius: 10px 15px;border-bottom-left-radius: 10px 15px;" size="4">
+            <img  style="width:100%;height: 100px;border-radius: 10px;" src="{{item.imgUrl}}">
+          </ion-col>
+          <ion-col style="width:100%;height:100px;border-bottom-right-radius: 10px 15px;border-top-right-radius: 10px 15px;">
+            <ion-list style="color:#65881a;font-weight: bold;">
+                <ion-label>Name: {{item.company_name}}</ion-label><br>
+                <ion-label>
+                  <div *ngIf="item.rating==1">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                  </div>
+                  <div *ngIf="item.rating==2">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                  </div>
+                  <div *ngIf="item.rating==3">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                  </div>
+                  <div *ngIf="item.rating==4">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                  </div>
+                  <div *ngIf="item.rating==5">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                    <img  style="width:7%;height: 15px;" src="./../../assets/icon/star-icon.png">
+                  </div>
+                  </ion-label>
+                <ion-label>Address: {{item.address}}</ion-label><br>
+                <ion-label>Price: {{item.price}}</ion-label>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card>
+  </ion-row>
+  </ion-grid>
   
-    <ion-col style="background-color: #E7F3CD; border:1px solid #E7F3CD;width:100%;height:100px;border-bottom-right-radius: 10px 15px;border-top-right-radius: 10px 15px;">
-      <ion-list style="background-color: #E7F3CD;">
-        
-          <ion-label>Name: {{item.company_name}}</ion-label><br>
-          <ion-label>Ratings: {{item.rating}}</ion-label><br>
-          <ion-label>Address: {{item.address}}</ion-label><br>
-          <ion-label>Price: </ion-label>
-      
-      </ion-list>
-    </ion-col>
-    </ion-row>
- 
-  </a>
-</ion-grid>
+  </ion-content>
+  
 
 
-</ion-content>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -322,7 +322,9 @@ getHotelUserUid(){
   this.Times = today.getHours()+":"+today.getMinutes();
   return (this.Times) 
   }
-  
+  showFeedBack(){
+    return "Submitted Successfully..."
+  }
 
 ///////////////////////////////////////////////////////////////////
 /////////////////////////////General users/////////////////////////

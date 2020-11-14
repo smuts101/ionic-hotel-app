@@ -13,6 +13,11 @@
         <h1>Create Profile Hotel</h1>
       </ion-col>
     </ion-row>
+    <ion-row *ngIf="state==1" >
+      <ion-col style="text-align: center;color:#5a751e;">
+     <div style="background-color:#77ad03 ;color:white;padding:5%;">{{feedback}}</div>   
+      </ion-col>
+    </ion-row>
   </ion-grid>
 <ion-grid>
   <ion-row>
@@ -42,11 +47,11 @@
       <ion-item>
         <ion-label>Rating</ion-label>
         <ion-select [(ngModel)]="rating"  name="rating"  >
-          <ion-select-option value="brown">1</ion-select-option>
-          <ion-select-option value="blonde">2</ion-select-option>
-          <ion-select-option value="black">3</ion-select-option>
-          <ion-select-option value="red">4</ion-select-option>
-          <ion-select-option value="red">5</ion-select-option>
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+          <ion-select-option value="4">4</ion-select-option>
+          <ion-select-option value="5">5</ion-select-option>
         </ion-select>
       </ion-item>
 

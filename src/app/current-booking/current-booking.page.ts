@@ -19,6 +19,7 @@ export class CurrentBookingPage implements OnInit {
     .then(snap => {
         snap.forEach(doc => {
           this.list.push(doc.data())  ;
+          console.log(doc.data())
         });
     });
 

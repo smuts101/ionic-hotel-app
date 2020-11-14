@@ -14,6 +14,11 @@
         <h1>Upload Images</h1>
       </ion-col>
     </ion-row>
+    <ion-row *ngIf="state==1" >
+      <ion-col style="text-align: center;color:#5a751e;">
+     <div style="background-color:#77ad03 ;color:white;padding:5%;">{{feedback}}</div>   
+      </ion-col>
+    </ion-row>
   </ion-grid>
 
   <br>

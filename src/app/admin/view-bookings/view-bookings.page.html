@@ -10,10 +10,10 @@
  
 
   <ion-row *ngFor="let x of list"> 
-    <ion-card style="width:100%;">
+    <ion-card style="width:100%;height: 100%;">
       <ion-grid>
         <ion-row>
-          {{x.user_email}}
+          <b>{{x.user_email}}</b>
         </ion-row>
         <ion-row>
           <ion-col><b>Check In:</b>  {{x.checkin}}</ion-col>
@@ -25,30 +25,24 @@
           <ion-col><b>Rooms:</b> {{x.rooms}}</ion-col>
         </ion-row>
         <ion-row>
-          <span *ngIf="x.status==0"><b>Status:</b> Declaned</span>
-          <span *ngIf="x.status==1"><b>Status:</b> Approved</span>
-          <span *ngIf="x.status=='panding'"><b>Status:</b> panding</span>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-button >Accept</ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button >declaned</ion-button>
-          </ion-col>
-
-          
-            <ion-row>
-            <ion-segment style="position: absolute;bottom: 10px;" >
-              <ion-segment-button (click)="status(x.hotel_id,x.uid,'1')" value="friends">
+          <span style="color:red" *ngIf="x.status==0"><b>Status:</b> Declaned</span>
+          <span style="color:greenyellow" *ngIf="x.status==1"><b>Status:</b> Approved</span>
+          <span style="color:cornflowerblue" *ngIf="x.status=='panding'"><b>Status:</b> panding</span>
+          <div style="margin-top: 60px;">
+            <ion-segment  >
+              <ion-segment-button style="background-color:greenyellow;" (click)="status(x.hotel_id,x.uid,'1')" value="friends">
                 <ion-label  >Accept</ion-label>
               </ion-segment-button>
               <ion-segment-button  style="background-color:red;" (click)="status(x.hotel_id,x.uid,'0')" value="enemies">
                 <ion-label>declaned!</ion-label>
               </ion-segment-button>
             </ion-segment>
+           </div>
             </ion-row>
-       
+        <ion-row *ngIf="state==1" >
+          <ion-col style="text-align: center;color:#5a751e;">
+         <div style="background-color:#77ad03 ;color:white;padding:5%;width:100%;">{{feedback}}</div>   
+          </ion-col>
         </ion-row>
       </ion-grid>
    </ion-card>

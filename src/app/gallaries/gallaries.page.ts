@@ -13,6 +13,8 @@ export class GallariesPage implements OnInit {
   isImageSaved: boolean;
   EditIsImageSaved: boolean;
   cardImageBase64: string;
+  feedback: string;
+  state: number=0;
 
   constructor(private router:Router,public hotelService:HotelService) { }
 
@@ -21,6 +23,8 @@ export class GallariesPage implements OnInit {
 
 
   gallaryUpload(){
+    this.feedback= this.hotelService.showFeedBack()
+    this.state=1;
 this.hotelService.addHotelGallary(this.hotelService.getHotelUserUid(),this.hotelService.getHotelUserUid(),this.cardImageBase64)
 }
 
