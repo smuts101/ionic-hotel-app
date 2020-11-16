@@ -6,24 +6,39 @@
         <ion-icon (click)="signOut()" style="color:black;font-size: 2em;float:right;" name="log-out-outline"></ion-icon></ion-col> 
     </ion-row>
   </ion-grid>
-<br>
-<ion-grid>
+
+<ion-grid style="margin-top: 100px;">
   <ion-row>
     <ion-col>
       <ion-item>
-        <a  [routerLink]="'/hotel-details'" >EDIT PROFILE</a>
+        
+        <ion-card style="width:100%;height:100%" >
+          <ion-card-content>
+            <a  [routerLink]="'/hotel-details'" > <ion-icon style="color:#91C622;width:100%;height: 50px;"  name="person-circle-outline"></ion-icon></a>
+          </ion-card-content>
+        </ion-card>
       </ion-item>
     </ion-col>
     <ion-col>
       <ion-item>
-        <a [routerLink]="'/gallaries'" >GALLARY</a>
+        <ion-card style="width:100%;height:100%" >
+          <ion-card-content>
+            <a [routerLink]="'/gallaries'" ><ion-icon style="color:#91C622;width:100%;height: 50px;" name="images-outline"></ion-icon></a>
+          </ion-card-content>
+        </ion-card>
       </ion-item>
     </ion-col>
 </ion-row>
 <ion-row>
+<ion-col size="6">
   <ion-item>
-  <a  [routerLink]="'/view-bookings'" >VIEW BOOKINGS</a>
-</ion-item>
+    <ion-card style="width:100%;height:100%" >
+      <ion-card-content>
+        <a  [routerLink]="'/view-bookings'" ><ion-icon style="color:#91C622;width:100%;height: 50px;" name="laptop-outline"></ion-icon></a>
+      </ion-card-content>
+    </ion-card>
+  </ion-item>
+</ion-col>
 </ion-row>
 </ion-grid>
 
