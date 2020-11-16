@@ -11,16 +11,21 @@ import 'firebase/auth';
   styleUrls: ['./hotel-signup.page.scss'],
 })
 export class HotelSignupPage implements OnInit {
-  email:any = "";
-  password:any = "";
-  constructor(private router:Router,public hotelService:HotelService) { }
+  formData:any 
+  
+  constructor(private router:Router,public hotelService:HotelService) { 
+    this.formData = {
+      email:'',
+      password:''
+    };
+  }
 
   ngOnInit() {}
 
 
  
    async createUser(){
-     this.hotelService.createUser(this.email,this.password);
+     this.hotelService.createUser(this.formData.email,this.formData.password);
   }
 
 

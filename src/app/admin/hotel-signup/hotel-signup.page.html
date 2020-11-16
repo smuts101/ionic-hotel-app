@@ -7,7 +7,9 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <br>  <br>  <br>  <br>  
+  <br>  <br>  
+  <form   novalidate #signUpForm="ngForm" >
+
 <ion-grid>
   <ion-grid>
     <ion-row >
@@ -20,7 +22,14 @@
     <ion-col>
       <ion-item>
         <ion-label  style="color:#058a3c;" position="floating">Email</ion-label>
-        <ion-input [(ngModel)]="email"  name="email"  type="text"></ion-input>
+        <ion-input [(ngModel)]="formData.email" 
+                   name="email"
+                   type="email"
+                   #email="ngModel"
+                   required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!email.valid && email.touched">
+        <ion-text color="danger">email required</ion-text>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -28,12 +37,20 @@
     <ion-col>
       <ion-item>
         <ion-label  style="color:#058a3c;" position="floating">Password</ion-label>
-        <ion-input [(ngModel)]="password"  name="password" type="text"></ion-input>
+        <ion-input [(ngModel)]="formData.password"  
+                   name="password" 
+                   #password="ngModel"
+                   type="password"
+                   required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!password.valid && password.touched">
+        <ion-text color="danger">password required</ion-text>
       </ion-item>
     </ion-col>
   </ion-row>
 </ion-grid>
-<ion-button expand="block" style="--background:#196F3D;" expand="full" (click)="createUser()" >Sign Up</ion-button>
+<ion-button expand="block" style="--background:#196F3D;" [disabled]="!signUpForm.valid" expand="full" (click)="createUser()" >Sign Up</ion-button>
+</form>
 </ion-content>
 
 

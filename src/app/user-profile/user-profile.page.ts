@@ -9,10 +9,11 @@ import { HotelService } from '../hotel.service';
   styleUrls: ['./user-profile.page.scss'],
 })
 export class UserProfilePage implements OnInit {
-  name:any
-  surname:any
-  phone:any
-   status:boolean = false;
+  formData:any;
+  // name:any
+  // surname:any
+  // phone:any
+    status:boolean = false;
    array:any={}
    show:any
 
@@ -26,6 +27,25 @@ export class UserProfilePage implements OnInit {
 
   constructor(private router:Router,public hotelService:HotelService) { 
 
+
+    this.formData = {
+      name:'',
+      surname:'',
+      phone:'',
+      img:''
+    };
+
+
+
+
+
+
+
+
+
+
+
+
     console.log("----------------->"+this.hotelService.getUserSessionUid());
 
     var db=firebase.firestore();
@@ -34,7 +54,7 @@ export class UserProfilePage implements OnInit {
       this.show = res.size
       if(res.size >= 0){
         console.log("Create account")
-        this.hotelProfile(this.name,this.surname,this.phone,this.hotelService.getUserSessionUid())
+        this.hotelProfile(this.formData.name,this.formData.surname,this.formData.phone,this.hotelService.getUserSessionUid())
       }else{
         console.log("already an active user")
       }
@@ -73,7 +93,7 @@ export class UserProfilePage implements OnInit {
       this.show = res.size
       if(res.size >= 0){
         console.log("Create account")
-        this.hotelProfile(this.name,this.surname,this.phone,this.hotelService.getUserSessionUid())
+        this.hotelProfile(this.formData.name,this.formData.surname,this.formData.phone,this.hotelService.getUserSessionUid())
       }else{
         console.log("already an active user")
       }

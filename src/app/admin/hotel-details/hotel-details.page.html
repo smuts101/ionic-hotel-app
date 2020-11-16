@@ -19,19 +19,33 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <form   novalidate #signInForm="ngForm" >
 <ion-grid>
   <ion-row>
     <ion-col>
       <ion-item>
-        <ion-label position="floating">company phone</ion-label>
-        <ion-input [(ngModel)]="company_tel"  name="email"  type="text"></ion-input>
+        <ion-label position="floating">company telephone</ion-label>
+        <ion-input [(ngModel)]="formData.company_tel"  
+                   name="company_tel"
+                   #company_tel="ngModel"
+                   required  
+                   type="text"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!company_tel.valid && company_tel.touched">
+        <ion-text color="danger">password required</ion-text>
       </ion-item>
     </ion-col>
  
     <ion-col>
       <ion-item>
         <ion-label position="floating">Employee Id</ion-label>
-        <ion-input [(ngModel)]="employee_id"  name="employee_id"  type="text"></ion-input>
+        <ion-input [(ngModel)]="formData.employee_id"  
+                   name="employee_id"  
+                   #employee_id="ngModel"
+                   type="text"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!employee_id.valid && employee_id.touched">
+        <ion-text color="danger">Employee id required</ion-text>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -39,14 +53,23 @@
     <ion-col>
       <ion-item>
         <ion-label position="floating">Hotel Name</ion-label>
-        <ion-input [(ngModel)]="company_name"  name="company_name"  type="text"></ion-input>
+        <ion-input [(ngModel)]="formData.company_name"
+                   name="company_name"
+                   #company_name="ngModel"  
+                   type="text"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!company_name.valid && company_name.touched">
+        <ion-text color="danger">Hotel name required</ion-text>
       </ion-item>
     </ion-col>
 
     <ion-col>
       <ion-item>
         <ion-label>Rating</ion-label>
-        <ion-select [(ngModel)]="rating"  name="rating"  >
+        <ion-select [(ngModel)]="formData.rating"
+                    name="rating" 
+                    #rating="ngModel" 
+                    required>
           <ion-select-option value="1">1</ion-select-option>
           <ion-select-option value="2">2</ion-select-option>
           <ion-select-option value="3">3</ion-select-option>
@@ -54,7 +77,9 @@
           <ion-select-option value="5">5</ion-select-option>
         </ion-select>
       </ion-item>
-
+      <ion-item *ngIf="!rating.valid && rating.touched">
+        <ion-text color="danger">rating required</ion-text>
+      </ion-item>
 
     </ion-col>
   </ion-row>
@@ -62,7 +87,14 @@
     <ion-col>
       <ion-item>
         <ion-label position="floating">address</ion-label>
-        <ion-textarea [(ngModel)]="address"  name="address"  type="text"></ion-textarea>
+        <ion-textarea [(ngModel)]="formData.address"  
+                      name="address"  
+                      type="text"
+                      #address="ngModel" 
+                      ></ion-textarea>
+      </ion-item>
+      <ion-item *ngIf="!address.valid && address.touched">
+        <ion-text color="danger">address required</ion-text>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -70,7 +102,13 @@
     <ion-col>
       <ion-item>
         <ion-label position="floating">history</ion-label>
-        <ion-textarea [(ngModel)]="history"  name="history"  type="text"></ion-textarea>
+        <ion-textarea [(ngModel)]="formData.history"  
+                      name="history"
+                      #history="ngModel"  
+                      type="text"></ion-textarea>
+      </ion-item>
+      <ion-item *ngIf="!history.valid && history.touched">
+        <ion-text color="danger">history required</ion-text>
       </ion-item>
     </ion-col>
   </ion-row> 
@@ -78,7 +116,17 @@
     <ion-col>
       <ion-item>
         <ion-label id="profile_image" color="primary" stacked>Profilbild wählen</ion-label>
-        <ion-input type="file" accept="image/*" id="upload" (change)="fileChangeEvent($event)"></ion-input>
+        <ion-input type="file"
+                   accept="image/*" 
+                   id="upload" 
+                   (change)="fileChangeEvent($event)"
+                   [(ngModel)]="formData.img"
+                   #img="ngModel" 
+                   name="img"
+                   ></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!img.valid && img.touched">
+        <ion-text color="danger">Image required</ion-text>
       </ion-item>
     </ion-col>
   </ion-row>
@@ -86,13 +134,19 @@
     <ion-col>
       <ion-item>
         <ion-label position="floating">Prices</ion-label>
-        <ion-input [(ngModel)]="price"  name="price"  type="text"></ion-input>
+        <ion-input [(ngModel)]="formData.price"  
+                   name="price"  
+                   #price="ngModel"
+                   type="text"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!price.valid && price.touched">
+        <ion-text color="danger">price required</ion-text>
       </ion-item>
     </ion-col>
   </ion-row>
 </ion-grid>
-<ion-button expand="block" style="--background:#3b38f3;" expand="full"  (click)=" hotelAccounts()" >Create</ion-button>
-
+<ion-button expand="block"    [disabled]="!signInForm.valid"       style="--background:#3b38f3;" expand="full"  (click)=" hotelAccounts()" >Create</ion-button>
+</form>
 
 </ion-content>
 

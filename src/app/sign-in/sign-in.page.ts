@@ -12,13 +12,20 @@ import 'firebase/auth';
   styleUrls: ['./sign-in.page.scss'],
 })
 export class SignInPage implements OnInit {
-  email:any = "";
-  password:any = "";
-  constructor(private router:Router,public hotelService:HotelService) { }
+  formData:any
+  // email:any = "";
+  // password:any = "";
+  constructor(private router:Router,public hotelService:HotelService) { 
+    this.formData = {
+      email:'',
+      password:''
+    };
+  }
 
   ngOnInit() {
   }
   async loginRegister(){
-    this.hotelService.loginRegisterUser(this.email,this.password); 
+    
+    this.hotelService.loginRegisterUser(this.formData.email,this.formData.password); 
   }
 }

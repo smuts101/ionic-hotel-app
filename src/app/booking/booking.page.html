@@ -12,7 +12,7 @@
 
 
 <h1 style="text-align: center;color:#5e8802">Bookings</h1>
-<form  novalidate #registerForm="ngForm">
+<form  novalidate #bookingForm="ngForm">
 <ion-grid>
   <ion-row>
     <ion-col>
@@ -225,7 +225,7 @@
     </ion-row>
 
 
-<ion-button expand="block"  [disabled] = "!registerForm.form.valid" style="--background:#196F3D;" (click)="bookingDetails()" expand="full" >BOOK</ion-button>
+<ion-button expand="block"  [disabled] = "!bookingForm.form.valid" style="--background:#196F3D;" (click)="bookingDetails()" expand="full" >BOOK</ion-button>
 </ion-grid>
 </form>
 </ion-content>

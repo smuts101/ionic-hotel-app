@@ -11,14 +11,10 @@ import 'firebase/auth';
   styleUrls: ['./hotel-details.page.scss'],
 })
 export class HotelDetailsPage implements OnInit {
+  formData:any
 
-  company_tel:any
-  employee_id:any
-  company_name:any
-  rating:any
-  address:any
-  history:any
-   email:any
+
+
    status:boolean = false;
    array:any={}
    show:any
@@ -34,7 +30,16 @@ export class HotelDetailsPage implements OnInit {
 
 
   constructor(private router:Router,public hotelService:HotelService) { 
-      
+    this.formData = {
+      company_tel:'',
+      employee_id:'',
+      company_name:'',
+      rating:'',
+      address:'',
+      history:'',
+      email:'',
+      img:''
+    };
   }
 
   ngOnInit() {
@@ -49,7 +54,9 @@ export class HotelDetailsPage implements OnInit {
   hotelAccounts(){
     this.feedback= this.hotelService.showFeedBack()
     this.state=1;
-   this.hotelService.hotelProfiles(this.hotelService.getHotelUserUid(),this.company_tel,this.employee_id,this.company_name,this.rating,this.address,this.history,this.cardImageBase64,this.price)
+   this.hotelService.hotelProfiles(this.hotelService.getHotelUserUid(),this.formData.company_tel,
+      this.formData.employee_id,this.formData.company_name,this.formData.rating,this.formData.address,
+      this.formData.history,this.cardImageBase64,this.formData.price)
 
 }
 

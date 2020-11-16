@@ -23,13 +23,23 @@
 
   <br>
   <br>
-
+  <form   novalidate #uploadForm="ngForm" >
 
 <ion-row>
   <ion-col>
     <ion-item>
       <ion-label id="profile_image" color="primary" stacked>Profilbild wählen</ion-label>
-      <ion-input type="file" accept="image/*" id="upload" (change)="fileChangeEvent($event)"></ion-input>
+      <ion-input type="file"
+      accept="image/*" 
+      id="upload" 
+      (change)="fileChangeEvent($event)"
+      [(ngModel)]="formData.img"
+      #img="ngModel" 
+      name="img"
+      required ></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!img.valid && img.touched">
+      <ion-text color="danger">Image required</ion-text>
     </ion-item>
   </ion-col>
 </ion-row>
@@ -38,14 +48,14 @@
 
 <ion-row>
   <ion-col>
-    <ion-button expand="block" style="--background:#196F3D;" expand="full"  (click)=" gallaryUpload()" >Upload</ion-button>
+    <ion-button expand="block" [disabled]="!uploadForm.valid" style="--background:#196F3D;" expand="full"  (click)=" gallaryUpload()" >Upload</ion-button>
   </ion-col>
   <ion-col>
-    <ion-button expand="block" style="--background:#196F3D;" expand="full" [routerLink]="'/image-gallary'"   >View Images</ion-button>
+    <ion-button expand="block"   style="--background:#196F3D;" expand="full" [routerLink]="'/image-gallary'"   >View Images</ion-button>
   </ion-col>
 </ion-row>
 
-
+</form>
 
 
 </ion-content>

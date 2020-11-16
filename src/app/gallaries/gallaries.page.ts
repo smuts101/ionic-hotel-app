@@ -15,17 +15,21 @@ export class GallariesPage implements OnInit {
   cardImageBase64: string;
   feedback: string;
   state: number=0;
-
-  constructor(private router:Router,public hotelService:HotelService) { }
+formData:any
+  constructor(private router:Router,public hotelService:HotelService) { 
+    this.formData = {
+      img:''
+    };
+  }
 
   ngOnInit() {
   }
 
 
   gallaryUpload(){
-    this.feedback= this.hotelService.showFeedBack()
-    this.state=1;
-this.hotelService.addHotelGallary(this.hotelService.getHotelUserUid(),this.hotelService.getHotelUserUid(),this.cardImageBase64)
+//     this.feedback= this.hotelService.showFeedBack()
+//     this.state=1;
+// this.hotelService.addHotelGallary(this.hotelService.getHotelUserUid(),this.hotelService.getHotelUserUid(),this.cardImageBase64)
 }
 
 
